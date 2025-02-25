@@ -6,10 +6,10 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Program
-NAME = minishell
+NAME = mehaphone
 
 # Source
-SRC = $(shell ls ex00/*.cpp)
+SRC = $(shell ls *.cpp)
 
 OBJS = $(SRC:.cpp=.o)
 
