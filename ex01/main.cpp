@@ -1,28 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/26 11:57:16 by sjossain          #+#    #+#             */
+/*   Updated: 2025/02/26 14:05:38 by sjossain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.h"
-
-void	tool_add(PhoneBook book)
-{
-	int	i;
-
-	i = 0;
-	while (i < 8)
-	{
-		if ()
-		{
-			book.cotactct[i].add_contact();
-			break ;
-		}
-		i++;
-	}
-}
 
 int	main(void)
 {
 	int			option;
-	Contact		contact[DATA_MAX];
 	PhoneBook	book;
+	int			contactCount;
 
 	option = 0;
+	contactCount = 0;
 	system("clear");
 	std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 	while (true)
@@ -36,13 +33,23 @@ int	main(void)
 		{
 			case(1):
 			{
-				tool_add(book);
-				std::cout << "\nStatut: \033[32mSuccess!\033[0m\n" << std::endl;
+				if (contactCount == 7)
+					contactCount = 0;
+				book.add_contact(contactCount);
+				system("clear");
+				std::cout << "\nStatut: \033[32mSuccess new contact add!\033[0m\n" << std::endl;
+				contactCount++;
 				break ;
 			}
 			case(2):
 			{
-				std::cout << "\nStatut: \033[32mSuccess!\033[0m\n" << std::endl;
+				if (contactCount == 0)
+				{
+					std::cout << "\nStatut: \033[37mNo contact add !\033[0m\n" << std::endl;
+					break ;
+				}
+				book.search_contact(contactCount);
+				std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 				break ;
 			}
 			default:
