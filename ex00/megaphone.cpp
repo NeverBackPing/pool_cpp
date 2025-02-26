@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cctype>
-using namespace std;
-
 
 void	ft_megaphone(char **str)
 {
@@ -18,17 +16,16 @@ void	ft_megaphone(char **str)
 			if (isalpha(str[i][j]))
 			{
 				c = toupper(str[i][j]);
-				cout << c;
+				std::cout << c;
 			}
 			else
-				cout << str[i][j];
+				std::cout << str[i][j];
 			j++;
-
 		}
-		cout << " ";
+		std::cout << " ";
 		i++;
 	}
-	cout << "\n";
+	std::cout << "\n";
 }
 
 
@@ -36,7 +33,7 @@ int	main(int ac, char **av)
 {
 	if (ac == 1)
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 		return (-1);
 	}
 	ft_megaphone(av);
