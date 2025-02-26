@@ -22,12 +22,22 @@
 
 class	Contact
 {
-	public:
+	private:
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
-		int		number;
+		int			number;
 		std::string	dark_secret;
+	public:
+		Contact(std::string fn, std::string ln, std::string nn, int num, std::string secret) :
+			first_name(fn),
+			last_name(ln),
+			nickname(nn),
+			number(num),
+			dark_secret(secret)
+		{
+			
+		}
 };
 
 #endif

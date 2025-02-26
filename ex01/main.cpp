@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 11:57:16 by sjossain          #+#    #+#             */
-/*   Updated: 2025/02/26 14:05:38 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:43:01 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	main(void)
 {
 	int			option;
 	PhoneBook	book;
-	int			contactCount;
+	int			contactcount;
 
 	option = 0;
-	contactCount = 0;
+	contactcount = 0;
 	system("clear");
 	std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 	while (true)
@@ -33,22 +33,22 @@ int	main(void)
 		{
 			case(1):
 			{
-				if (contactCount == 7)
-					contactCount = 0;
-				book.add_contact(contactCount);
+				if (contactcount == 7)
+					contactcount = 0;
+				book.add_contact(contactcount);
 				system("clear");
 				std::cout << "\nStatut: \033[32mSuccess new contact add!\033[0m\n" << std::endl;
-				contactCount++;
+				contactcount++;
 				break ;
 			}
 			case(2):
 			{
-				if (contactCount == 0)
+				if (contactcount == 0)
 				{
 					std::cout << "\nStatut: \033[37mNo contact add !\033[0m\n" << std::endl;
 					break ;
 				}
-				book.search_contact(contactCount);
+				book.search_contact(contactcount);
 				std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 				break ;
 			}

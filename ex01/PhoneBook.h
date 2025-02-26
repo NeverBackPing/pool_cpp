@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 11:57:10 by sjossain          #+#    #+#             */
-/*   Updated: 2025/02/26 14:05:30 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:38:59 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ class	PhoneBook
 {
 	public:
 		Contact	contact[DATA_MAX];
-		int		contactCount;
 	public:
-		void	add_contact(int contactCount);
-		void	search_contact(int contactCount);
-		void	fail_cin(char *str);
-		bool	check_double(void);
+		void	add_contact(int contactcount);
+		void	search_contact(int contactcount);
+		void	fail_cin(char *str, int contactcount);
+		bool	check_double(int contactcount);
 };
 
 //choise.cpp
