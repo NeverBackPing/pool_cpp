@@ -29,14 +29,33 @@ class	Contact
 		int			number;
 		std::string	dark_secret;
 	public:
+		Contact() : first_name(""), last_name(""), nickname(""), number(0), dark_secret("") {}
 		Contact(std::string fn, std::string ln, std::string nn, int num, std::string secret) :
-			first_name(fn),
-			last_name(ln),
-			nickname(nn),
-			number(num),
-			dark_secret(secret)
+			first_name(fn), last_name(ln), nickname(nn), number(num), dark_secret(secret) {}
+
+		std::string getFirstName()const
 		{
-			
+			return first_name;
+		}
+
+		std::string getLastName()const
+		{
+			return last_name;
+		}
+
+		std::string getNickname()const
+		{
+			return nickname;
+		}
+
+		int getNumber()const
+		{
+			return number;
+		}
+
+		std::string getDarkSecret()const
+		{
+			return dark_secret;
 		}
 };
 

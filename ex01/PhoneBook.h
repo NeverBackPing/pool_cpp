@@ -27,10 +27,11 @@ class	PhoneBook
 	public:
 		Contact	contact[DATA_MAX];
 	public:
-		void	add_contact(int contactcount);
-		void	search_contact(int contactcount);
-		void	fail_cin(char *str, int contactcount);
-		bool	check_double(int contactcount);
+		PhoneBook(){};
+		//void	add_contact();
+		//void	search_contact(int contactcount);
+		//void	fail_cin(char *str, int contactcount);
+		//bool	check_double(int contactcount);
 };
 
 //choise.cpp

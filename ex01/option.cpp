@@ -20,7 +20,7 @@
 	number{0},
 	dark_secret(""){};
 */
-bool	PhoneBook::check_double(int contactcount)
+/*bool	PhoneBook::check_double(int contactcount)
 {
 	PhoneBook	book;
 	int			i;
@@ -42,9 +42,9 @@ bool	PhoneBook::check_double(int contactcount)
 		i++;
 	}
 	return (true);
-}
+}*/
 
-void	PhoneBook::fail_cin(char *str, int contactcount)
+/*void	PhoneBook::fail_cin(const Contact &newContact)
 {
 	PhoneBook	book;
 	int			check_double;
@@ -60,9 +60,9 @@ void	PhoneBook::fail_cin(char *str, int contactcount)
 			check_double = 0;
 	}
 	std::cin.clear();
-}
+}*/
 
-void	PhoneBook::add_contact(int contactcount)
+/*void	PhoneBook::add_contact(const Contact &newContact, int contactcount)
 {
 	PhoneBook	book;
 
@@ -122,9 +122,9 @@ void	PhoneBook::add_contact(int contactcount)
 	}
 	std::cout << "\nEnter : " << book.contact[contactcount].dark_secret << std::endl;
 
-}
+}*/
 
-void	PhoneBook::search_contact(int contactcount)
+/*void	PhoneBook::search_contact(int contactcount)
 {
 	PhoneBook	book;
 	std::string	search[2];
@@ -180,7 +180,7 @@ void	PhoneBook::search_contact(int contactcount)
 			break;
 		system("clear");
 	}
-}
+}*/
 
 void	exit_phone_book(void)
 {
