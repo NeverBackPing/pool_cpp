@@ -18,6 +18,7 @@
 # include <iostream>
 # include <stdlib.h>
 # include <stdbool.h>
+#include <cstdint>
 # include "Contact.h"
 
 #define DATA_MAX 7
@@ -28,10 +29,8 @@ class	PhoneBook
 		Contact	contact[DATA_MAX];
 	public:
 		PhoneBook(){};
-		//void	add_contact();
-		//void	search_contact(int contactcount);
-		//void	fail_cin(char *str, int contactcount);
-		//bool	check_double(int contactcount);
+		void	add_contact(int i);
+		void	search_contact(int count);
 };
 
 //choise.cpp

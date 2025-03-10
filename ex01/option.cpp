@@ -12,175 +12,116 @@
 
 #include "PhoneBook.h"
 
-/*constructeur*/
-/*Contact::Contact(std::string fn, std::string ln, std::string nn, int num, std::string secret):
-	first_name(""),
-	last_name(""),
-	nickname(""),
-	number{0},
-	dark_secret(""){};
-*/
-/*bool	PhoneBook::check_double(int contactcount)
+void	PhoneBook::add_contact(int i)
 {
-	PhoneBook	book;
-	int			i;
-	int			j;
+	int			number;
+	std::string	first;
+	std::string	last;
+	std::string	nickname;
+	std::string	dark_secret;
 
-	i = 0;
-	j = 1;
-	while (i < contactcount)
-	{
-		while (j < contactcount)
-		{
-			if (!book.contact[i].first_name.compare(book.contact[j].first_name) &&\
-				!book.contact[i].last_name.compare(book.contact[j].last_name) && \
-				book.contact[i].number == book.contact[j].number)
-				return (false);
-			j++;
-		}
-		j++;
-		i++;
-	}
-	return (true);
-}*/
-
-/*void	PhoneBook::fail_cin(const Contact &newContact)
-{
-	PhoneBook	book;
-	int			check_double;
-
-	check_double = 1;
-	while (std::cin.fail() && check_double)
-	{
-		std::cin.clear();
-		std::cin.ignore(1000, '\n');
-		std::cout << str;
-		std::cin >> book.contact[contactcount].;
-		if (book.check_double())
-			check_double = 0;
-	}
-	std::cin.clear();
-}*/
-
-/*void	PhoneBook::add_contact(const Contact &newContact, int contactcount)
-{
-	PhoneBook	book;
-
-	system("clear");
 	std::cout << "\n\nEnter First Name : ";
-	std::cin >> book.contact[contactcount].first_name;
+	std::cin >> first;
 	while (std::cin.fail())
 	{
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
 		std::cout << "\n\nEnter First Name : ";
-		std::cin >> book.contact[contactcount].first_name;
+		std::cin >> first;
 	}
-	std::cout << "\nEnter : " << book.contact[contactcount].first_name << std::endl;
+
 	std::cout << "\nEnter Last Name : ";
-	std::cin >> book.contact[contactcount].last_name;
+	std::cin >> last;
 	while (std::cin.fail())
 	{
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
 		std::cout << "\nEnter Last Name : ";
-		std::cin >> book.contact[contactcount].last_name;
+		std::cin >> last;
 	}
-	std::cout << "\nEnter : " << book.contact[contactcount].last_name << std::endl;
 
 	std::cout << "\nEnter nickname : ";
-	std::cin >>  book.contact[contactcount].nickname;
+	std::cin >> nickname;
 	while (std::cin.fail())
 	{
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
 		std::cout << "\nEnter nickname : ";
-		std::cin >>  book.contact[contactcount].nickname;
+		std::cin >> nickname;
 	}
-	std::cout << "\nEnter : " << book.contact[contactcount].nickname<< std::endl;
 
-	std::cin.clear();
 	std::cout << "\nEnter Phone Number : ";
-	std::cin >>  book.contact[contactcount].number;
+	std::cin >>  number;
 	while (std::cin.fail())
 	{
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
 		std::cout << "\nEnter Phone Number : ";
-		std::cin >>  book.contact[contactcount].number;
+		std::cin >>  number;
 	}
-	std::cout << "\nEnter : " << book.contact[contactcount].number << std::endl;
 
 	std::cout << "\nEnter a dark secret : ";
-	std::cin >>  book.contact[contactcount].dark_secret;
+	std::cin >> dark_secret;
 	while (std::cin.fail())
 	{
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
 		std::cout << "\nEnter a dark secret : ";
-		std::cin >>  book.contact[contactcount].dark_secret;
+		std::cin >> dark_secret;
 	}
-	std::cout << "\nEnter : " << book.contact[contactcount].dark_secret << std::endl;
+	contact[i] = Contact(first, last, nickname, number, dark_secret);
+}
 
-}*/
-
-/*void	PhoneBook::search_contact(int contactcount)
+void	PhoneBook::search_contact(int count)
 {
-	PhoneBook	book;
-	std::string	search[2];
-	uint8_t		i;
-	uint8_t		exit;
-	bool		find;
+	std::string	option;
+	int			first_name_width;
+	int			last_name_width;
+	int			nickname_width;
+	int			dark_width;
+	int			number_width;
+	int			num_length;
+	int			index;
 
-	exit = 0;
-	system("clear");
-	std::cout << "\nStatut: \033[37mWaiting for research....\033[0m\n" << std::endl;
-	while (true)
+
+	index = 0;
+	num_length = 0;
+	dark_width = 0;
+	first_name_width = 0;
+	last_name_width = 0;
+	nickname_width = 0;
+	number_width = 0;
+	for (size_t i = 0; i < 8; ++i)
 	{
-		i = 0;
-		find = false;
-		std::cout << "\nEnter a firt name: ";
-		std::cin >>  search[0];
-		std::cout << "\nEnter a last name: ";
-		std::cin >>  search[1];
-		while (i < contactcount)
-		{
-			int find_contact = book.contact[i].first_name.compare(search[0]) ;
-			int find_contact1 = book.contact[i].last_name.compare(search[1]);
-			if (find_contact == 0 && find_contact1 == 0)
-			{
-				find = true;
-				break ;
-			}
-			i++;
-		}
-		if (find)
-		{
-			std::cout << "\nContact: "<< book.contact[i].first_name << " | ";
-			std::cout << book.contact[i].last_name << " | ";
-			std::cout << book.contact[i].nickname << " | ";
-			std::cout << book.contact[i].number << " | ";
-			std::cout << book.contact[i].dark_secret <<std::endl;
-		}
-		else
-			std::cout << "\nContact: \033[31mNot find !\033[30m\n"<<std::endl;
-		std::cout << "\n\nDo you want exit  enter 1 or continue enter 0 ? ";
-		std::cin >>  exit;
-		std::cout <<std::endl;
-		while (std::cin.fail())
-		{
-			if (exit == 0 || exit == 1)
-				break ;
-			std::cin.clear();
-			std::cin.ignore(1000, '\n');
-			std::cout << "\n\nDo you want exit  enter 1 or continue enter 0 ? ";
-			std::cin >> exit;
-		}
-		if (exit == 1)
-			break;
-		system("clear");
+		first_name_width = std::max(first_name_width, (int)contact[i].getFirstName().size());
+		last_name_width = std::max(last_name_width, (int)contact[i].getLastName().size());
+		nickname_width = std::max(nickname_width, (int)contact[i].getNickname().size());
+		dark_width = std::max(dark_width, (int)contact[i].getDarkSecret().size());
+		num_length = std::to_string(contact[i].getNumber()).length();
+		number_width = std::max(number_width, num_length);
 	}
-}*/
+	std::cout << std::setw(8) << "ID"
+				<< " | " << std::setw(first_name_width) << "FIRST_NAME"
+				<< " | " << std::setw(last_name_width) << "LAST_NAME"
+				<< " | " << std::setw(nickname_width) << "NICKNAME"
+				<< " | " << std::setw(number_width) << "NUMBER"
+				<< " | " << std::setw(dark_width) << "DARK_SECRET"
+				<< " |\n";
+	std::cout << std::string(8 + number_width + first_name_width + last_name_width + nickname_width + 13, '-') << "\n";
+	for (size_t i = 0; i < count; ++i)
+	{
+		std::cout << index
+				<< " | " << std::setw(first_name_width) << contact[i].getFirstName()
+				<< " | " << std::setw(last_name_width) << contact[i].getLastName()
+				<< " | " << std::setw(nickname_width) << contact[i].getNickname()
+				<< " | " << std::setw(number_width) << contact[i].getNumber()
+				<< " | " << std::setw(dark_width) << contact[i].getDarkSecret()
+				<< " |\n";
+	}
+	std::cout << std::string(8 + number_width + first_name_width + last_name_width + nickname_width + 13, '-') << "\n";
+
+	getline(std::cin, option);
+}
 
 void	exit_phone_book(void)
 {

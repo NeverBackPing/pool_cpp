@@ -34,7 +34,6 @@ void	ft_megaphone(char **str)
 				std::cout << str[i][j];
 			j++;
 		}
-		std::cout << " ";
 		i++;
 	}
 	std::cout << "\n";
