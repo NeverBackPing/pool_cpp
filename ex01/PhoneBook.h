@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 11:57:10 by sjossain          #+#    #+#             */
-/*   Updated: 2025/02/26 15:38:59 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/03/11 12:53:46 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <iostream>
 # include <stdlib.h>
 # include <stdbool.h>
-#include <cstdint>
+# include <cstdint>
 # include "Contact.h"
 
 #define DATA_MAX 7
@@ -39,4 +39,7 @@ int		choise_option(void);
 void	ft_menu(void);
 //option.cpp
 void	exit_phone_book(void);
+//option_tool.cpp
+int		what_option(std::string option);
+void	use_option(std::string option, PhoneBook book, int *contactcount);
 #endif

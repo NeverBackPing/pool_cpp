@@ -32,30 +32,11 @@ class	Contact
 		Contact() : first_name(""), last_name(""), nickname(""), number(0), dark_secret("") {}
 		Contact(std::string fn, std::string ln, std::string nn, int num, std::string secret) :
 			first_name(fn), last_name(ln), nickname(nn), number(num), dark_secret(secret) {}
-		std::string getFirstName()const
-		{
-			return (first_name);
-		}
-
-		std::string getLastName()const
-		{
-			return (last_name);
-		}
-
-		std::string getNickname()const
-		{
-			return (nickname);
-		}
-
-		int getNumber()const
-		{
-			return (number);
-		}
-
-		std::string getDarkSecret()const
-		{
-			return (dark_secret);
-		}
+		std::string	getFirstName()const;
+		std::string	getLastName()const;
+		std::string	getNickname()const;
+		int			getNumber()const;
+		std::string	getDarkSecret()const;
 };
 
 #endif

@@ -22,6 +22,9 @@ void	PhoneBook::add_contact(int i)
 
 	std::cout << "\n\nEnter First Name : ";
 	std::cin >> first;
+	getline(std::cin, first);
+	if (std::cin.eof())
+		exit_phone_book();
 	while (std::cin.fail())
 	{
 		std::cin.clear();
@@ -32,6 +35,9 @@ void	PhoneBook::add_contact(int i)
 
 	std::cout << "\nEnter Last Name : ";
 	std::cin >> last;
+	getline(std::cin, last);
+	if (std::cin.eof())
+		exit_phone_book();
 	while (std::cin.fail())
 	{
 		std::cin.clear();
@@ -42,6 +48,9 @@ void	PhoneBook::add_contact(int i)
 
 	std::cout << "\nEnter nickname : ";
 	std::cin >> nickname;
+	getline(std::cin, nickname);
+	if (std::cin.eof())
+		exit_phone_book();
 	while (std::cin.fail())
 	{
 		std::cin.clear();
@@ -51,7 +60,7 @@ void	PhoneBook::add_contact(int i)
 	}
 
 	std::cout << "\nEnter Phone Number : ";
-	std::cin >>  number;
+	std::cin >> number;
 	while (std::cin.fail())
 	{
 		std::cin.clear();
@@ -62,6 +71,9 @@ void	PhoneBook::add_contact(int i)
 
 	std::cout << "\nEnter a dark secret : ";
 	std::cin >> dark_secret;
+	getline(std::cin, dark_secret);
+	if (std::cin.eof())
+		exit_phone_book();
 	while (std::cin.fail())
 	{
 		std::cin.clear();
@@ -75,60 +87,44 @@ void	PhoneBook::add_contact(int i)
 void	PhoneBook::search_contact(int count)
 {
 	std::string	option;
-	int			first_name_width;
-	int			last_name_width;
-	int			nickname_width;
-	int			dark_width;
-	int			number_width;
-	int			num_length;
-	int			index;
+	std::string	data;
+	int			option_index;
+	int			i;
 
-
-	index = 0;
-	num_length = 0;
-	dark_width = 0;
-	first_name_width = 0;
-	last_name_width = 0;
-	nickname_width = 0;
-	number_width = 0;
-	for (size_t i = 0; i < 8; ++i)
+	i = 0;
+	option_index = 0;
+	std::cout << "    INDEX"
+				<< "|"  << " FIRST_NAME"
+				<< "|"  << " LAST_NAME"
+				<< "|"  << " NICKNAME"
+				<< "|"  << "   NUMBER"
+				<< "|\n";
+	while (i < count)
 	{
-		first_name_width = std::max(first_name_width, (int)contact[i].getFirstName().size());
-		last_name_width = std::max(last_name_width, (int)contact[i].getLastName().size());
-		nickname_width = std::max(nickname_width, (int)contact[i].getNickname().size());
-		dark_width = std::max(dark_width, (int)contact[i].getDarkSecret().size());
-		num_length = std::to_string(contact[i].getNumber()).length();
-		number_width = std::max(number_width, num_length);
+		std::cout << std::setw(10) << i + 1
+			<< "|" << std::setw(10) << contact[i].getFirstName()
+			<< "|" << std::setw(10) << contact[i].getLastName()
+			<< "|" << std::setw(10) << contact[i].getNickname()
+			<< "|" << std::setw(10) << contact[i].getNumber()
+			<< "|\n";
+		i++;
 	}
-	std::cout << std::setw(8) << "ID"
-				<< " | " << std::setw(first_name_width) << "FIRST_NAME"
-				<< " | " << std::setw(last_name_width) << "LAST_NAME"
-				<< " | " << std::setw(nickname_width) << "NICKNAME"
-				<< " | " << std::setw(number_width) << "NUMBER"
-				<< " | " << std::setw(dark_width) << "DARK_SECRET"
-				<< " |\n";
-	std::cout << std::string(8 + number_width + first_name_width + last_name_width + nickname_width + 13, '-') << "\n";
-	for (size_t i = 0; i < count; ++i)
-	{
-		std::cout << index
-				<< " | " << std::setw(first_name_width) << contact[i].getFirstName()
-				<< " | " << std::setw(last_name_width) << contact[i].getLastName()
-				<< " | " << std::setw(nickname_width) << contact[i].getNickname()
-				<< " | " << std::setw(number_width) << contact[i].getNumber()
-				<< " | " << std::setw(dark_width) << contact[i].getDarkSecret()
-				<< " |\n";
-	}
-	std::cout << std::string(8 + number_width + first_name_width + last_name_width + nickname_width + 13, '-') << "\n";
-
+	std::cout << "\nChoose in index > ";
 	getline(std::cin, option);
+	if (std::cin.eof())
+		exit_phone_book();
+	option_index = stoi(option);
+	if (option_index < 1 && option_index > 8)
+	{
+		std::cout << "\nStatut: \033[31mInvalide input.\033[0m\n" << std::endl;
+	}
 }
 
 void	exit_phone_book(void)
 {
 	system("clear");
 	std::cout << "\nStatut: \033[37mLog out\033[0m\n" << std::endl;
-	ft_menu();
-	std::cout << "\n";
+	//ft_menu();
 	exit(0);
 }
 
