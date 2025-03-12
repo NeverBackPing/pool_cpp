@@ -41,5 +41,5 @@ void	ft_menu(void);
 void	exit_phone_book(void);
 //option_tool.cpp
 int		what_option(std::string option);
-void	use_option(std::string option, PhoneBook book, int *contactcount);
+void	use_option(std::string option, PhoneBook *book, int *contactcount);
 #endif

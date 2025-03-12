@@ -28,7 +28,7 @@ int	main(void)
 		if (!option.compare("EXIT") || std::cin.eof())
 			exit_phone_book();
 		system("clear");
-		use_option(option, book, &contactcount);
+		use_option(option, &book, &contactcount);
 	}
 	return (0);
 }

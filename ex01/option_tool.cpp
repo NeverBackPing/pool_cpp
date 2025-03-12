@@ -21,16 +21,16 @@ int	what_option(std::string option)
 	return (-1);
 }
 
-void	use_option(std::string option, PhoneBook book, int *contactcount)
+void	use_option(std::string option, PhoneBook *book, int *contactcount)
 {
 	switch (what_option(option))
 	{
 		case(0):
 		{
-			if (*contactcount == 7)
+			if (*contactcount == 8)
 				contactcount = 0;
 			system("clear");
-			book.add_contact(*contactcount);
+			book->add_contact(*contactcount);
 			system("clear");
 			std::cout << "\nStatut: \033[32mSuccess new contact add!\033[0m\n" << std::endl;
 			(*contactcount)++;
@@ -44,7 +44,7 @@ void	use_option(std::string option, PhoneBook book, int *contactcount)
 				break ;
 			}
 			system("clear");
-			book.search_contact(*contactcount);
+			book->search_contact(*contactcount);
 			std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 			break ;
 		}
