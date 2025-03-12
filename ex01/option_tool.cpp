@@ -35,7 +35,7 @@ std::string	out_data(std::string handler)
 
 	std::cout << handler;
 	getline(std::cin, data);
-	if (std::cin.eof())
+	if (std::cin.eof() || data.compare("EXIT"))
 		exit_phone_book();
 	while (std::cin.fail())
 	{
@@ -53,7 +53,7 @@ std::string	out_data_number(std::string handler)
 
 	std::cout << handler;
 	getline(std::cin, data);
-	if (std::cin.eof())
+	if (std::cin.eof() || data.compare("EXIT"))
 		exit_phone_book();
 	while (1)
 	{
