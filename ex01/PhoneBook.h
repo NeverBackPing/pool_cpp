@@ -34,12 +34,15 @@ class	PhoneBook
 };
 
 //choise.cpp
-int		choise_option(void);
+int			choise_option(void);
 //menu.cpp
-void	ft_menu(void);
+void		ft_menu(void);
 //option.cpp
-void	exit_phone_book(void);
+void		exit_phone_book(void);
 //option_tool.cpp
-int		what_option(std::string option);
-void	use_option(std::string option, PhoneBook *book, int *contactcount);
+std::string	out_data(std::string handler);
+std::string	out_data_number(std::string handler);
+std::string	truncate(std::string str, size_t width);
+void		use_option(std::string option, PhoneBook *book, int *contactcount);
+int			what_option(std::string option);
 #endif

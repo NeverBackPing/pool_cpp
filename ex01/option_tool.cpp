@@ -12,6 +12,60 @@
 
 #include "PhoneBook.h"
 
+std::string	truncate(std::string str, size_t width)
+{
+	if (str.length() > width)
+		return str.substr(0, width - 1) + ".";
+	return str;
+}
+
+bool	all_digits(const std::string& number)
+{
+	for (char c : number)
+	{
+		if (!std::isdigit(c))
+			return false;
+	}
+	return (!number.empty());
+}
+
+std::string	out_data(std::string handler)
+{
+	std::string	data;
+
+	std::cout << handler;
+	getline(std::cin, data);
+	if (std::cin.eof())
+		exit_phone_book();
+	while (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore(1000, '\n');
+		std::cout << handler;
+		std::cin >> data;
+	}
+	return (data);
+}
+
+std::string	out_data_number(std::string handler)
+{
+	std::string	data;
+
+	std::cout << handler;
+	getline(std::cin, data);
+	if (std::cin.eof())
+		exit_phone_book();
+	while (1)
+	{
+		if (all_digits(data))
+			return (data);
+		std::cin.clear();
+		std::cout << "\nEnter Phone Number : ";
+		std::cin >> data;
+	}
+	return (data);
+}
+
 int	what_option(std::string option)
 {
 	if (!option.compare("ADD"))

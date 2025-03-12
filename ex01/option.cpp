@@ -12,53 +12,6 @@
 
 #include "PhoneBook.h"
 
-bool	all_digits(const std::string& number)
-{
-	for (char c : number)
-	{
-		if (!std::isdigit(c))
-			return false;
-	}
-	return (!number.empty());
-}
-
-std::string	out_data(std::string handler)
-{
-	std::string	data;
-
-	std::cout << handler;
-	getline(std::cin, data);
-	if (std::cin.eof())
-		exit_phone_book();
-	while (std::cin.fail())
-	{
-		std::cin.clear();
-		std::cin.ignore(1000, '\n');
-		std::cout << handler;
-		std::cin >> data;
-	}
-	return (data);
-}
-
-std::string	out_data_number(std::string handler)
-{
-	std::string	data;
-
-	std::cout << handler;
-	getline(std::cin, data);
-	if (std::cin.eof())
-		exit_phone_book();
-	while (1)
-	{
-		if (all_digits(data))
-			return (data);
-		std::cin.clear();
-		std::cout << "\nEnter Phone Number : ";
-		std::cin >> data;
-	}
-	return (data);
-}
-
 void	PhoneBook::add_contact(int i)
 {
 	PhoneBook	book;
@@ -74,13 +27,6 @@ void	PhoneBook::add_contact(int i)
 	number = out_data_number("\nEnter Phone Number: ");
 	dark_secret = out_data("\nEnter a dark secret: ");
 	contact[i] = Contact(first, last, nickname, number, dark_secret);
-}
-
-std::string	truncate(std::string str, size_t width)
-{
-	if (str.length() > width)
-		return str.substr(0, width - 1) + ".";
-	return str;
 }
 
 void	PhoneBook::search_contact(int count)
@@ -122,8 +68,6 @@ void	PhoneBook::search_contact(int count)
 		std::cout << "\nStatus: \033[31mInvalid input.\033[0m\n" << std::endl;
 	}
 }
-
-
 
 void	exit_phone_book(void)
 {
