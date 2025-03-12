@@ -84,40 +84,58 @@ void	PhoneBook::add_contact(int i)
 	contact[i] = Contact(first, last, nickname, number, dark_secret);
 }
 
-void	PhoneBook::search_contact(int count)
+void PhoneBook::search_contact(int count)
 {
-	std::string	option;
-	std::string	data;
-	int			option_index;
-	int			i;
+	if (count == 0)
+	{
+		std::cout << "No contacts saved.\n";
+		return;
+	}
 
-	i = 0;
-	option_index = 0;
-	std::cout << "    INDEX"
-				<< "|"  << " FIRST_NAME"
-				<< "|"  << " LAST_NAME"
-				<< "|"  << " NICKNAME"
-				<< "|"  << "   NUMBER"
+	std::string option;
+	int option_index;
+
+	std::cout << std::setw(10) << "INDEX"
+				<< "|" << std::setw(10) << "FIRST NAME"
+				<< "|" << std::setw(10) << "LAST NAME"
+				<< "|" << std::setw(10) << "NICKNAME"
 				<< "|\n";
-	while (i < count)
+
+	for (int i = 0; i < count; i++)
 	{
 		std::cout << std::setw(10) << i + 1
-			<< "|" << std::setw(10) << contact[i].getFirstName()
-			<< "|" << std::setw(10) << contact[i].getLastName()
-			<< "|" << std::setw(10) << contact[i].getNickname()
-			<< "|" << std::setw(10) << contact[i].getNumber()
-			<< "|\n";
-		i++;
+					<< "|" << std::setw(10) << truncate(contact[i].getFirstName(), 10)
+					<< "|" << std::setw(10) << truncate(contact[i].getLastName(), 10)
+					<< "|" << std::setw(10) << truncate(contact[i].getNickname(), 10)
+					<< "|\n";
 	}
-	std::cout << "\nChoose in index > ";
-	getline(std::cin, option);
+
+	std::cout << "\nChoose an index > ";
+	std::getline(std::cin, option);
+
 	if (std::cin.eof())
 		exit_phone_book();
-	option_index = stoi(option);
-	if (option_index < 1 && option_index > 8)
+
+	try
 	{
-		std::cout << "\nStatut: \033[31mInvalide input.\033[0m\n" << std::endl;
+		option_index = std::stoi(option);
+		if (option_index < 1 || option_index > count)
+		{
+			throw std::out_of_range("Invalid index.");
+		}
+		contact[option_index - 1].displayContact();
 	}
+	catch (const std::exception&)
+	{
+		std::cout << "\nStatus: \033[31mInvalid input.\033[0m\n" << std::endl;
+	}
+}
+
+std::string	truncate(std::string str, size_t width)
+{
+	if (str.length() > width)
+		return str.substr(0, width - 1) + ".";
+	return str;
 }
 
 void	exit_phone_book(void)
