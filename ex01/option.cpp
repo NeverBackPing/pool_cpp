@@ -12,14 +12,32 @@
 
 #include "PhoneBook.h"
 
+bool	all_digits(std::string number)
+{
+	int	detect;
+
+	detect = 0;
+	for (char& c : number)
+	{
+		if (!(c >= 48 && c <= 57))
+			detect++;
+		std::cout << "aaaaaaaaaaaaaaaaaa\n" << std::endl;
+	}
+	if (detect != 0)
+		return (true);
+	return (false);
+}
+
 void	PhoneBook::add_contact(int i)
 {
-	int			number;
+	std::string	number;
 	std::string	first;
 	std::string	last;
 	std::string	nickname;
 	std::string	dark_secret;
+	bool		allDigits;
 
+	allDigits = true;
 	std::cout << "\n\nEnter First Name : ";
 	std::cin >> first;
 	getline(std::cin, first);
@@ -61,6 +79,16 @@ void	PhoneBook::add_contact(int i)
 
 	std::cout << "\nEnter Phone Number : ";
 	std::cin >> number;
+	getline(std::cin, number);
+	if (std::cin.eof())
+		exit_phone_book();
+	while (1 && all_digits(number))
+	{
+		std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
+		std::cin.clear();
+		std::cout << "\nEnter Phone Number : ";
+		std::cin >> number;
+	}
 	while (std::cin.fail())
 	{
 		std::cin.clear();
@@ -82,6 +110,13 @@ void	PhoneBook::add_contact(int i)
 		std::cin >> dark_secret;
 	}
 	contact[i] = Contact(first, last, nickname, number, dark_secret);
+}
+
+std::string	truncate(std::string str, size_t width)
+{
+	if (str.length() > width)
+		return str.substr(0, width - 1) + ".";
+	return str;
 }
 
 void PhoneBook::search_contact(int count)
@@ -131,12 +166,7 @@ void PhoneBook::search_contact(int count)
 	}
 }
 
-std::string	truncate(std::string str, size_t width)
-{
-	if (str.length() > width)
-		return str.substr(0, width - 1) + ".";
-	return str;
-}
+
 
 void	exit_phone_book(void)
 {

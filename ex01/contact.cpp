@@ -27,7 +27,7 @@ std::string	Contact::getNickname()const
 	return (nickname);
 }
 
-int	Contact::getNumber()const
+std::string	Contact::getNumber()const
 {
 	return (number);
 }
