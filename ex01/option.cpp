@@ -15,14 +15,17 @@
 bool	all_digits(std::string number)
 {
 	int	detect;
+	int	i;
 
+	i = 0;
 	detect = 0;
-	for (char& c : number)
+	while (number[i])
 	{
-		if (!(c >= 48 && c <= 57))
+		if ((number[i] >= '0' && number[i] <= '9'))
 			detect++;
-		std::cout << "aaaaaaaaaaaaaaaaaa\n" << std::endl;
+		i++;
 	}
+	std::cout << "count: " << detect << std::endl;
 	if (detect != 0)
 		return (true);
 	return (false);
@@ -82,9 +85,10 @@ void	PhoneBook::add_contact(int i)
 	getline(std::cin, number);
 	if (std::cin.eof())
 		exit_phone_book();
-	while (1 && all_digits(number))
+	while (1)
 	{
-		std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
+		if (all_digits(number) == false)
+			break ;
 		std::cin.clear();
 		std::cout << "\nEnter Phone Number : ";
 		std::cin >> number;
