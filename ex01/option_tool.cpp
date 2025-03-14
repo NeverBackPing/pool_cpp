@@ -35,7 +35,7 @@ std::string	out_data(std::string handler)
 
 	std::cout << handler;
 	getline(std::cin, data);
-	if (std::cin.eof() || data.compare("EXIT"))
+	if (std::cin.eof() || !data.compare("EXIT"))
 		exit_phone_book();
 	while (std::cin.fail())
 	{
@@ -53,7 +53,7 @@ std::string	out_data_number(std::string handler)
 
 	std::cout << handler;
 	getline(std::cin, data);
-	if (std::cin.eof() || data.compare("EXIT"))
+	if (std::cin.eof() || !data.compare("EXIT"))
 		exit_phone_book();
 	while (1)
 	{
@@ -82,10 +82,8 @@ void	use_option(std::string option, PhoneBook *book, int *contactcount)
 		case(0):
 		{
 			if (*contactcount == 8)
-				contactcount = 0;
-			system("clear");
+				*contactcount = 0;
 			book->add_contact(*contactcount);
-			system("clear");
 			std::cout << "\nStatut: \033[32mSuccess new contact add!\033[0m\n" << std::endl;
 			(*contactcount)++;
 			break ;
@@ -97,7 +95,6 @@ void	use_option(std::string option, PhoneBook *book, int *contactcount)
 				std::cout<< "\nStatut: \033[37mNo contact add !\033[0m\n" << std::endl;
 				break ;
 			}
-			system("clear");
 			book->search_contact(*contactcount);
 			std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 			break ;

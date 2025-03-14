@@ -19,7 +19,6 @@ int	main(void)
 	int			contactcount;
 
 	contactcount = 0;
-	system("clear");
 	std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 	while (true)
 	{
@@ -27,7 +26,6 @@ int	main(void)
 		getline(std::cin, option);
 		if (!option.compare("EXIT") || std::cin.eof())
 			exit_phone_book();
-		system("clear");
 		use_option(option, &book, &contactcount);
 	}
 	return (0);
