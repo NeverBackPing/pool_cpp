@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   choise.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 11:51:23 by sjossain          #+#    #+#             */
-/*   Updated: 2025/03/11 11:59:07 by sjossain         ###   ########.fr       */
+/*   Created: 2025/02/26 11:57:31 by sjossain          #+#    #+#             */
+/*   Updated: 2025/02/26 11:57:31 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.h"
+#include "../includes/PhoneBook.h"
 
-std::string	Contact::getFirstName()const
+int	choise_option(void)
 {
-	return (first_name);
-}
+	int	option;
 
-std::string	Contact::getLastName()const
-{
-	return (last_name);
-}
-
-std::string	Contact::getNickname()const
-{
-	return (nickname);
-}
-
-std::string	Contact::getNumber()const
-{
-	return (number);
-}
-
-std::string	Contact::getDarkSecret()const
-{
-	return (dark_secret);
+	option = 0;
+	while (!(std::cin >> option))
+	{
+		if (isdigit(option))
+			break ;
+		std::cin.clear();
+		system("clear");
+		std::cout << "\nStatut: \033[31mInvalid input.\033[0m\n" << std::endl;
+		ft_menu();
+		std::cin.ignore();
+	}
+	return (option);
 }
