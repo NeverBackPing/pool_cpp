@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.cpp                                           :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 11:57:23 by sjossain          #+#    #+#             */
-/*   Updated: 2025/02/26 11:57:23 by sjossain         ###   ########.fr       */
+/*   Created: 2025/03/11 11:51:23 by sjossain          #+#    #+#             */
+/*   Updated: 2025/03/11 11:59:07 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.h"
+#include "../includes/Contact.h"
 
-void	ft_menu(void)
+std::string	Contact::getFirstName()const
 {
-	std::cout << "               Phone Book \n";
-	std::cout << "              -----------\n\n";
-	std::cout << " 1.     ADD   ➕   \n\n";
-	std::cout << " 2.    SEARCH 🔍   \n\n";
-	std::cout << " 3.     EXIT  👋   \n\n";
-	std::cout << " > ";
+	return (first_name);
+}
+
+std::string	Contact::getLastName()const
+{
+	return (last_name);
+}
+
+std::string	Contact::getNickname()const
+{
+	return (nickname);
+}
+
+std::string	Contact::getNumber()const
+{
+	return (number);
+}
+
+std::string	Contact::getDarkSecret()const
+{
+	return (dark_secret);
 }

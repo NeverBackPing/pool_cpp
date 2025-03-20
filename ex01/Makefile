@@ -9,7 +9,7 @@ RM = rm -rf
 NAME = phonebook
 
 # Source
-SRC = $(shell ls *.cpp)
+SRC = $(shell ls srcs/*.cpp)
 
 OBJS = $(SRC:.cpp=.o)
 

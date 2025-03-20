@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.h"
+#include "../includes/PhoneBook.h"
 
 std::string	truncate(std::string str, size_t width)
 {
