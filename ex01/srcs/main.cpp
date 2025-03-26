@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-	std::string	option;
 	PhoneBook	book;
+	std::string	option;
 	int			contactcount;
 
 	contactcount = 0;
@@ -25,9 +25,10 @@ int	main(void)
 		ft_menu();
 		getline(std::cin, option);
 		if (!option.compare("EXIT") || std::cin.eof())
-			exit_phone_book();
+			break ;
 		use_option(option, &book, &contactcount);
 	}
+	exit_phone_book();
 	return (0);
 }
 
