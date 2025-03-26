@@ -18,8 +18,6 @@
 # include <iostream>
 # include <stdlib.h>
 
-#define DATA_MAX 7
-
 class	Contact
 {
 	private:

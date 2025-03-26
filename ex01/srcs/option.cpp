@@ -33,14 +33,17 @@ void	PhoneBook::search_contact(int count)
 {
 	std::string	option;
 	int			option_index;
+	static int	display = 0;
 
+	if (display < count)
+		display = count;
 	std::cout << std::setw(10) << "INDEX"
 				<< "|" << std::setw(10) << "FIRST NAME"
 				<< "|" << std::setw(10) << "LAST NAME"
 				<< "|" << std::setw(10) << "NICKNAME"
 				<< "|\n";
 
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < display; i++)
 	{
 		std::cout << std::setw(10) << i + 1
 					<< "|" << std::setw(10) << truncate(contact[i].getFirstName(), 10)
@@ -71,7 +74,6 @@ void	PhoneBook::search_contact(int count)
 
 void	exit_phone_book(void)
 {
-	system("clear");
 	std::cout << "\nStatut: \033[37mLog out\033[0m\n" << std::endl;
 	exit(0);
 }

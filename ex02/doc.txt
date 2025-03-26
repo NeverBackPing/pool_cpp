@@ -1,0 +1,8 @@
+accounts = comptes
+amount = montant
+closed = fermée
+created = creer
+deposits = dépôts
+nb_deposits = nombre dépôts
+p_amount = p montant
+withdrawals = retraits

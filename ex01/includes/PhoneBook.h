@@ -21,7 +21,7 @@
 # include <cstdint>
 # include "Contact.h"
 
-#define DATA_MAX 7
+#define DATA_MAX 8
 
 class	PhoneBook
 {
