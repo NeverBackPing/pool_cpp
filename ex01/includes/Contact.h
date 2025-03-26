@@ -39,12 +39,12 @@ class	Contact
 		std::string	getDarkSecret() const;
 
 		void displayContact() const {
-			std::cout << "\n===== CONTACT DETAILS =====\n";
+			std::cout << "\n===== CONTACT DETAILS =====\n\n";
 			std::cout << "First Name: " << first_name << "\n";
 			std::cout << "Last Name: " << last_name << "\n";
 			std::cout << "Nickname: " << nickname << "\n";
 			std::cout << "Phone Number: " << number << "\n";
-			std::cout << "Darkest Secret: " << dark_secret << "\n";
+			std::cout << "Darkest Secret: " << dark_secret << "\n\n";
 			std::cout << "===========================\n";
 		}
 };

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Contact.h"
+#include "../../includes/Contact.h"
 
 std::string	Contact::getFirstName()const
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/PhoneBook.h"
+#include "../../includes/PhoneBook.h"
 
 void	PhoneBook::add_contact(int i)
 {
@@ -51,12 +51,10 @@ void	PhoneBook::search_contact(int count)
 					<< "|" << std::setw(10) << truncate(contact[i].getNickname(), 10)
 					<< "|\n";
 	}
-
 	std::cout << "\nChoose an index > ";
 	std::getline(std::cin, option);
 	if (std::cin.eof())
 		exit_phone_book();
-
 	try
 	{
 		option_index = std::stoi(option);

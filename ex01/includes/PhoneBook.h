@@ -25,9 +25,10 @@
 
 class	PhoneBook
 {
-	public:
+	private:
 		Contact	contact[DATA_MAX];
 	public:
+		
 		PhoneBook(){};
 		void	add_contact(int i);
 		void	search_contact(int count);
