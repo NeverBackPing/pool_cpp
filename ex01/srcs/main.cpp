@@ -17,18 +17,22 @@ int	main(void)
 	PhoneBook	book;
 	std::string	option;
 	int			contactcount;
-
+	
 	contactcount = 0;
 	std::cout << "\nStatut: \033[37mWaiting for response....\033[0m\n" << std::endl;
 	while (true)
 	{
 		ft_menu();
 		getline(std::cin, option);
+		std::cin.clear();
 		if (!option.compare("EXIT") || std::cin.eof())
 			break ;
-		use_option(option, &book, &contactcount);
+		if (use_option(option, &book, &contactcount))
+			break ;
 	}
-	exit_phone_book();
+	option.clear();
+	option.shrink_to_fit();
+	std::cout << "\n\nStatut: out\n" << std::endl;
 	return (0);
 }
 

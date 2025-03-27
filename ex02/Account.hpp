@@ -14,6 +14,7 @@
 
 #include <ctime>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <functional>
 
@@ -58,8 +59,6 @@ private:
 
 	Account( void );
 };
-
-
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //

@@ -12,7 +12,7 @@
 
 #include "../../includes/PhoneBook.h"
 
-void	PhoneBook::add_contact(int i)
+void	PhoneBook::add_contact(int i, int *exit)
 {
 	PhoneBook	book;
 	std::string	number;
@@ -21,15 +21,25 @@ void	PhoneBook::add_contact(int i)
 	std::string	nickname;
 	std::string	dark_secret;
 
-	first = out_data("\n\nEnter First Name: ");
-	last = out_data("\nEnter Last Name: ");
-	nickname = out_data("\nEnter nickname : ");
-	number = out_data_number("\nEnter Phone Number: ");
-	dark_secret = out_data("\nEnter a dark secret: ");
-	contact[i] = Contact(first, last, nickname, number, dark_secret);
+	first = out_data("\n\nEnter First Name: ", exit);
+	if (*exit)
+		return ;
+	last = out_data("\nEnter Last Name: ", exit);
+	if (*exit)
+		return ;
+	nickname = out_data("\nEnter nickname : ", exit);
+	if (*exit)
+		return ;	
+	number = out_data_number("\nEnter Phone Number: ", exit);
+	if (*exit)
+		return ;		
+	dark_secret = out_secret("\nEnter a dark secret: ", exit);
+	if (*exit)
+		return ;
+	contact[i] = std::move(Contact(first, last, nickname, number, dark_secret));
 }
 
-void	PhoneBook::search_contact(int count)
+void	PhoneBook::search_contact(int count, int *exit)
 {
 	std::string	option;
 	int			option_index;
@@ -53,8 +63,13 @@ void	PhoneBook::search_contact(int count)
 	}
 	std::cout << "\nChoose an index > ";
 	std::getline(std::cin, option);
-	if (std::cin.eof())
-		exit_phone_book();
+	if (std::cin.eof() || !option.compare("EXIT"))
+	{
+		option.clear();
+		option.shrink_to_fit();
+		*exit = 1;
+		return ;
+	}
 	try
 	{
 		option_index = std::stoi(option);
@@ -68,13 +83,8 @@ void	PhoneBook::search_contact(int count)
 	{
 		std::cout << "\nStatus: \033[31mInvalid input.\033[0m\n" << std::endl;
 	}
+	option.clear();
+	option.shrink_to_fit();
 }
-
-void	exit_phone_book(void)
-{
-	std::cout << "\nStatut: \033[37mLog out\033[0m\n" << std::endl;
-	exit(0);
-}
-
 
 

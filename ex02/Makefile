@@ -9,7 +9,7 @@ RM = rm -rf
 NAME = account
 
 # Source
-SRC = $(shell ls srcs/*.cpp)
+SRC = $(shell ls *.cpp)
 
 OBJS = $(SRC:.cpp=.o)
 
