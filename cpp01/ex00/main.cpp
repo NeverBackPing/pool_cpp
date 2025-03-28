@@ -3,8 +3,8 @@
 int main(void)
 {
     Zombie zombie1("Foo");
-	Zombie *zombie2 = newZombie("Buzz");
 	zombie1.announce();
+	Zombie *zombie2 = newZombie("Buzz");
 	zombie2->announce();
 	randomChump("FooBuzz");
 	delete zombie2;
