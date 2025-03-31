@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Account.cpp                                         :+:      :+:    :+:   */
+/*   Account.cpp                                         :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,15 +23,15 @@ int Account::_totalNbWithdrawals = 0;
 
 void	Account::_displayTimestamp(void)
 {
-	tm		*ltm;
+	tm		*tm;
 	time_t	now;
 
 	now = time(0);
-	ltm = localtime(&now);
+	tm = localtime(&now);
 	std::cout << "[";
-	std::cout << 1900 + ltm->tm_year << 1 + ltm->tm_mon << ltm->tm_mday;
+	std::cout << 1900 + tm->tm_year << 1 + tm->tm_mon << tm->tm_mday;
 	std::cout << "_" ;
-	std::cout << 0 + ltm->tm_hour << 0 + ltm->tm_min << ltm->tm_sec ;
+	std::cout << 0 + tm->tm_hour << 0 + tm->tm_min << tm->tm_sec ;
 	std::cout << "]" ;
 }
 
