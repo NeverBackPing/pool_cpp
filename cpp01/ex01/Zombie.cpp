@@ -7,7 +7,7 @@ void	Zombie::init_Name(std::string name)
 
 void	Zombie::announce(void)
 {
-	std::cout << this->_name  << ": ahAhhh"<< std::endl;
+	std::cout << this->_name  << ": BraiiiiiiinnnzzzZ..."<< std::endl;
 }
 
 Zombie::~Zombie(void)

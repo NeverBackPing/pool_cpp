@@ -14,7 +14,7 @@ SRC = $(shell ls *.cpp)
 OBJS = $(SRC:.cpp=.o)
 
 # Fichier objet
-%.o: %.cpp
+%.o: %.c
 	@$(CPP) $(CFLAGS) -cpp $< -o $@
 
 # Compile

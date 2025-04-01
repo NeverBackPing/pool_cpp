@@ -3,5 +3,9 @@
 int	main(void)
 {
 	Harl	h;
-	h.complain("error");
+	h.complain("DEBUG");
+	//h.complain("INFO");
+	//h.complain("WARNING");
+	//h.complain("ERROR");
+	//h.complain("UNKNOWN");
 }
