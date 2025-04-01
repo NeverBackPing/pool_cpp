@@ -13,6 +13,7 @@
 
 #include "Account.hpp"
 
+
 int Account::_nbAccounts = 0;
 
 int Account::_totalAmount = 0;
@@ -38,8 +39,8 @@ void	Account::_displayTimestamp(void)
 Account::Account(int initial_deposit)
 	: _accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {
-	_nbAccounts++;
-	_totalAmount += _amount;
+	_nbAccounts = _nbAccounts + 1;
+	_totalAmount = _totalAmount + _amount;
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex;
 	std::cout << ";amount:" << this->_amount;

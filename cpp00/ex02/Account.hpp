@@ -34,7 +34,7 @@ public:
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
-
+	
 	Account( int initial_deposit );
 	~Account( void );
 
