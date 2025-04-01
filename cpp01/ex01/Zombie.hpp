@@ -4,17 +4,16 @@
 # include <iostream>
 # include <string>
 
-class   Zombie 
+class	Zombie
 {
-    public:
-        Zombie(void){};
-        ~Zombie(void);
-        void    announce(void);
+	public:
+		Zombie(void){};
+		~Zombie(void);
+		void announce(void);
+		void init_Name(std::string name);
 
-        void init_Name(std::string name);
-
-    private:
-        std::string _name;
+	private:
+		std::string _name;
 };
 
 Zombie* zombieHorde(int N, std::string name);

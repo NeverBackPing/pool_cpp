@@ -5,20 +5,19 @@
 # include <string>
 # include "Weapon.hpp"
 
-class HumanB
+class	HumanB
 {
-    private:
-        std::string name;
-        Weapon* weaponPtr;
-    
-    public:
-        HumanB(void){};
-        HumanB(std::string _name);
-        ~HumanB(void);
+	private:
+		std::string name;
+		Weapon* weaponPtr;
 
-    void    attack(void);
-    void    setWeapon(Weapon &_weaponPtr);
-    };
-    
+	public:
+		HumanB(void){};
+		HumanB(std::string _name);
+		~HumanB(void);
+		void attack(void);
+		void setWeapon(Weapon &_weaponPtr);
+
+};
 
 #endif

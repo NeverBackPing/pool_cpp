@@ -2,16 +2,16 @@
 
 int main(void)
 {
-    int horde;
-    
-    horde = 10;
+	int	horde;
 
-    Zombie *zombie = zombieHorde(horde, "zombie");
+	horde = 10;
 
-    for (int i = 0; i < horde; i++)
-        zombie[i].announce();
+	Zombie *zombie = zombieHorde(horde, "zombie");
 
-    delete[] zombie;
+	for (int i = 0; i < horde; i++)
+		zombie[i].announce();
 
-    return (0);
+	delete[] zombie;
+
+	return (0);
 }
