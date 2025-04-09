@@ -1,6 +1,6 @@
 # Compiler and Compiler flags
 CPP = c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -MMD
 
 # Clear
 RM = rm -rf

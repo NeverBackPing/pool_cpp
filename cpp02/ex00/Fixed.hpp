@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:10 by sjossain          #+#    #+#             */
-/*   Updated: 2025/03/31 23:52:18 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:24:05 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream>
+# include <iostream>
 
 class	Fixed
 {
@@ -26,8 +26,8 @@ class	Fixed
 		Fixed(const Fixed &copy);
 		Fixed& operator=(const Fixed& copy);
 		~Fixed(void);
-		int getRawBits(void) const;
 		void setRawBits(int const raw);
-}
+		int getRawBits(void) const;
+};
 
 #endif
