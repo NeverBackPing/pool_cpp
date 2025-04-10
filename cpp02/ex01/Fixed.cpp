@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:08 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/10 14:00:28 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:29:09 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ Fixed::Fixed(void)
 : _num(0)
 {
 	std::cout << "Default constructor called\n";
+}
+
+Fixed::Fixed(int const n)
+: _num(n << _bit)
+{
+	std::cout << "Int constructor called\n";
+}
+
+Fixed::Fixed(float const n)
+: _num(roundf(n * (1 << _bit)))
+{
+	std::cout << "Float constructor called\n";
 }
 
 Fixed::Fixed(const Fixed &copy)
@@ -34,17 +46,22 @@ Fixed& Fixed::operator=(const Fixed& copy)
 	if (this == & copy)
 		return (*this);
 	_num = copy._num;
-	std::cout << "Copy assignment operator calle\n";
+	std::cout << "Copy assignment operator called\n";
 	return (*this);
 }
 
-int	Fixed::getRawBits(void) const
+std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
-	std::cout << "getRawBits member function called\n";
-	return (this->_num);
+	os << obj.toFloat();
+	return (os);
 }
 
-void	Fixed::setRawBits(int const raw)
+float	Fixed::toFloat(void) const
 {
-	this->_num = raw << 1;
+	return (float)_num / (1 << _bit);
+}
+
+int		Fixed::toInt(void) const
+{
+	return (_num >> _bit);
 }
