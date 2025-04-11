@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:08 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/10 14:29:09 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:41:01 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
 	os << obj.toFloat();
 	return (os);
+}
+
+int Fixed::getRawBits(void) const
+{
+	return (this->_num);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+	this->_num= raw;
 }
 
 float	Fixed::toFloat(void) const

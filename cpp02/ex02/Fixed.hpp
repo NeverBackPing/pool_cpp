@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:10 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/11 13:44:26 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/11 15:11:47 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,32 @@ class	Fixed
 
 		Fixed& operator=(const Fixed& copy);
 
+		bool operator>(const Fixed& copy);
+		bool operator<(const Fixed& copy);
+		bool operator>=(const Fixed& copy);
+		bool operator<=(const Fixed& copy);
+		bool operator==(const Fixed& copy);
+		bool operator!=(const Fixed& copy);
+
+		Fixed operator+(const Fixed& copy);
+		Fixed operator-(const Fixed& copy);
+		Fixed operator*(const Fixed& copy);
+		Fixed operator/(const Fixed& copy);
+
+		Fixed& operator++(void);
+		Fixed& operator--(void);
+		Fixed operator++(int);
+		Fixed operator--(int);
+
+
+		static Fixed& min(Fixed& first, Fixed& second);
+		static Fixed& max(Fixed& first, Fixed& second);
+		static const Fixed& min(const Fixed& first, const Fixed& second);
+		static const Fixed& max(const Fixed& first, const Fixed& second);
+
 		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
 		int		toInt(void) const;
+		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 };
 
