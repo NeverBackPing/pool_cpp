@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:08 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/11 15:04:59 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/15 23:47:24 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return (float)_num / (1 << _bit);
+	return ((float)_num / (1 << _bit));
 }
 
 int		Fixed::toInt(void) const
@@ -129,6 +129,7 @@ Fixed Fixed::operator/(const Fixed& copy)
 Fixed& Fixed::operator++(void)
 {
 	this->_num++;
+	std::cout << "ici : " << *this << std::endl;
 	return (*this);
 }
 
@@ -159,8 +160,8 @@ Fixed Fixed::operator++(int)
 Fixed& Fixed::min(Fixed& first, Fixed& second)
 {
 	if (first < second)
-		return (second);
-	return (first);
+		return (first);
+	return (second);
 }
 
 Fixed& Fixed::max(Fixed& first, Fixed& second)
@@ -173,8 +174,8 @@ Fixed& Fixed::max(Fixed& first, Fixed& second)
 const Fixed& Fixed::min(const Fixed& first, const Fixed& second)
 {
 	if (first._num < second._num)
-		return (second);
-	return (first);
+		return (first);
+	return (second);
 }
 
 const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
@@ -186,6 +187,7 @@ const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
+	os << obj.toFloat();
 	return (os);
 }
 
