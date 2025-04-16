@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:08 by sjossain          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/04/14 13:06:41 by sjossain         ###   ########.fr       */
-=======
-/*   Updated: 2025/04/15 23:47:24 by sjossain         ###   ########.fr       */
->>>>>>> 766845d3b64d541410cef5d9a44a30bcb12d48c9
+/*   Updated: 2025/04/16 22:17:55 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +129,6 @@ Fixed Fixed::operator/(const Fixed& copy)
 Fixed& Fixed::operator++(void)
 {
 	this->_num++;
-	std::cout << "ici : " << *this << std::endl;
 	return (*this);
 }
 
