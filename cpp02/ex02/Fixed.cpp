@@ -6,7 +6,11 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:08 by sjossain          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/04/14 13:06:41 by sjossain         ###   ########.fr       */
+=======
+/*   Updated: 2025/04/15 23:47:24 by sjossain         ###   ########.fr       */
+>>>>>>> 766845d3b64d541410cef5d9a44a30bcb12d48c9
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +52,7 @@ void Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return (float)_num / (1 << _bit);
+	return ((float)_num / (1 << _bit));
 }
 
 int		Fixed::toInt(void) const
@@ -129,6 +133,7 @@ Fixed Fixed::operator/(const Fixed& copy)
 Fixed& Fixed::operator++(void)
 {
 	this->_num++;
+	std::cout << "ici : " << *this << std::endl;
 	return (*this);
 }
 
@@ -186,6 +191,7 @@ const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
+	os << obj.toFloat();
 	return (os);
 }
 
