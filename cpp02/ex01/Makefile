@@ -15,7 +15,7 @@ OBJS = $(SRC:.cpp=.o)
 
 # Fichier objet
 %.o: %.c
-	@$(CPP) $(CFLAGS) -cpp $< -o $@
+	@$(CPP) $(CFLAGS) $< -o $@
 
 # Compile
 all: $(NAME)

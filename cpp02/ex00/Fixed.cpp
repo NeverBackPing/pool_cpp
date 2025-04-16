@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:24:08 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/10 14:00:28 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:25:34 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(const Fixed &copy)
 {
-	_num = copy._num;
 	std::cout << "Copy constructor called\n";
+	_num = copy.getRawBits();
 }
 
 Fixed::~Fixed(void)
@@ -32,9 +32,12 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator=(const Fixed& copy)
 {
 	if (this == & copy)
+	{
+		_num = copy.getRawBits();
 		return (*this);
-	_num = copy._num;
+	}
 	std::cout << "Copy assignment operator calle\n";
+	_num = copy.getRawBits();
 	return (*this);
 }
 
