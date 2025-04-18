@@ -6,12 +6,11 @@
 /*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:15:26 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/18 14:53:36 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/18 15:13:39 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
-#include <ostream>
 
 ClapTrap::ClapTrap()
 : _name("Omen"), _energy(10), _hit(10), _attackDamage(0)
@@ -28,7 +27,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap &copy)
 : _name(copy._name), _energy(copy._energy), _hit(copy._hit), _attackDamage(copy._attackDamage)
 {
-	std::cout << "ClapTrap Copy constructor called for " << copy._name << std::endl;
+	std::cout << "Copy constructor called for " << copy._name << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
@@ -45,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << " ClapTrap destructor called for "  << this->_name << std::endl;
+	std::cout << "ClapTrap Destructor called for "  << this->_name << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -99,9 +98,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << " can't be repaired " << std::endl;
 		return ;
 	}
-	if (_hit == 10)
+	if (_hit == 100)
 	{
-		std::cout << " can't be repaired, full heath 10 " << std::endl;
+		std::cout << " can't be repaired, full heath 100" << std::endl;
 		return ;
 	}
 	_hit += amount;
