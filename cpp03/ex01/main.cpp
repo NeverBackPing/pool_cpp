@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 19:06:09 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 19:13:49 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/20 21:43:46 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int main(void)
 
 	player1.attack("Cypher");
 
-	player2.takeDamage(3);
-	player2.takeDamage(5);
-	player2.takeDamage(3);
-	player2.takeDamage(2);
+	player2.takeDamage(30);
+	player2.takeDamage(50);
+	player2.takeDamage(30);
+	player2.takeDamage(20);
 
-	player3.beRepaired(3);
+	player3.beRepaired(30);
 	player3.takeDamage(10);
-	player3.beRepaired(2);
+	player3.beRepaired(20);
 
 	player4.beRepaired(1);
 	for (int i = 0; i < 10; i++)

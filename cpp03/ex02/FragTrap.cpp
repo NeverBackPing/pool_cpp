@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 19:05:34 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 19:41:11 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/20 21:52:09 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ FragTrap::FragTrap(const FragTrap& Copy)
 	std::cout << "FragTrap copy constructor called on " << Copy._name << std::endl;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& rhs)
+FragTrap& FragTrap::operator=(const FragTrap& copy)
 {
-	ClapTrap::operator=(rhs);
-	return *this;
+	ClapTrap::operator=(copy);
+	return (*this);
 }
 
 FragTrap::~FragTrap()

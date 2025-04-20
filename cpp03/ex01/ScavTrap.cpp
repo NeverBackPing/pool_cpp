@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 19:06:11 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 19:39:24 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/20 21:42:16 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ ScavTrap::ScavTrap(std::string name)
 	this->_attackDamage = 20;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &copy)
+: ClapTrap(copy)
+{
+	std::cout << "ScavTrap Copy constructor called for " << copy._name << std::endl;
+}
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 {
 	if (this != &copy)
@@ -40,18 +46,6 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 		_attackDamage = copy._attackDamage;
 	}
 	return (*this);
-}
-
-ScavTrap::ScavTrap(const ScavTrap &copy)
-{
-	if (this != &copy)
-	{
-		_hit = copy._hit;
-		_name = copy._name;
-		_energy = copy._energy;
-		_attackDamage = copy._attackDamage;
-	}
-	std::cout << "ScavTrap Copy constructor called for " << copy._name << std::endl;
 }
 
 ScavTrap::~ScavTrap()
