@@ -1,12 +1,13 @@
 #include "ClapTrap.h"
 #include "FragTrap.h"
+#include "ScavTrap.h"
 
 int main(void)
 {
 	ClapTrap player1("Jett");
 	ClapTrap player2("Reyna");
-	ClapTrap player3("Kayo");
-	FragTrap player4("Cypher");
+	FragTrap player3("Kayo");
+	ScavTrap player4("Cypher");
 
 	player1.attack("Reyna");
 	player1.attack("Kayo");
