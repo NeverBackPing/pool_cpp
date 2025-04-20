@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/20 19:06:09 by sjossain          #+#    #+#             */
+/*   Updated: 2025/04/20 19:13:49 by sjossain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.h"
 #include "ScavTrap.h"
 
 int main(void)
 {
 	ClapTrap player1("Jett");
-	ClapTrap player2("Reyna");
+	ScavTrap player2("Reyna");
 	ClapTrap player3("Kayo");
 	ScavTrap player4("Cypher");
 

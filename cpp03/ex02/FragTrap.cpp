@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/20 19:05:34 by sjossain          #+#    #+#             */
+/*   Updated: 2025/04/20 19:41:11 by sjossain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.h"
 
 FragTrap::FragTrap()
@@ -19,7 +31,7 @@ FragTrap::FragTrap(std::string name)
 }
 
 FragTrap::FragTrap(const FragTrap& Copy)
-	: ClapTrap(Copy)
+: ClapTrap(Copy)
 {
 	std::cout << "FragTrap copy constructor called on " << Copy._name << std::endl;
 }
@@ -49,5 +61,5 @@ void FragTrap::attack(std::string const & target)
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << this->_name << " would like to high five everyone!" << std::endl;
+	std::cout << "FragTrap " << this->_name << " : thanks teammate Good game" << std::endl;
 }

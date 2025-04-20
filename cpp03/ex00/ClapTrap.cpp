@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:15:26 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/18 14:53:36 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/20 19:09:43 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << " ClapTrap destructor called for "  << this->_name << std::endl;
+	std::cout << "ClapTrap destructor called for "  << this->_name << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

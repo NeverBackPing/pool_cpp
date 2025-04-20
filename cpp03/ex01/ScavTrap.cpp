@@ -1,27 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/20 19:06:11 by sjossain          #+#    #+#             */
+/*   Updated: 2025/04/20 19:39:24 by sjossain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.h"
 
 ScavTrap::ScavTrap()
+: ClapTrap()
 {
-	this->_name = "Omen";
+	std::cout << "ScavTrap " << this->_name << " Construtor called !" << std::endl;
 	this->_hit = 100;
 	this->_energy = 50;
 	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name)
+: ClapTrap(name)
 {
-	this->_name = name;
+	std::cout << "ScavTrap " << this->_name << " Construtor called !" << std::endl;
 	this->_hit = 100;
 	this->_energy = 50;
 	this->_attackDamage = 20;
 }
 
+ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
+{
+	if (this != &copy)
+	{
+		_hit = copy._hit;
+		_name = copy._name;
+		_energy = copy._energy;
+		_attackDamage = copy._attackDamage;
+	}
+	return (*this);
+}
+
+ScavTrap::ScavTrap(const ScavTrap &copy)
+{
+	if (this != &copy)
+	{
+		_hit = copy._hit;
+		_name = copy._name;
+		_energy = copy._energy;
+		_attackDamage = copy._attackDamage;
+	}
+	std::cout << "ScavTrap Copy constructor called for " << copy._name << std::endl;
+}
 
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called for "  << this->_name << std::endl;
 }
-
 
 void ScavTrap::attack(const std::string& target)
 {

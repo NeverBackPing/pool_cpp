@@ -5,9 +5,9 @@
 int main(void)
 {
 	ClapTrap player1("Jett");
-	ClapTrap player2("Reyna");
-	FragTrap player3("Kayo");
-	ScavTrap player4("Cypher");
+	FragTrap player2("Reyna");
+	ScavTrap player3("Kayo");
+	FragTrap player4("Cypher");
 
 	player1.attack("Reyna");
 	player1.attack("Kayo");
@@ -31,6 +31,6 @@ int main(void)
 		player4.attack("Jett");
 	player4.takeDamage(2);
 	player4.beRepaired(1);
-	player4.guardGate();
+	player4.highFivesGuys();
 
 }
