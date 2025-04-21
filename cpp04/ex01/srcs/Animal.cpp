@@ -25,7 +25,10 @@ Animal::Animal(const Animal & copy)
 
 Animal & Animal::operator=(Animal const & copy)
 {
-	this->_type = copy._type;
+	if (this != &copy)
+	{
+		this->_type = copy.getType();
+	}
 	return (*this);
 }
 

@@ -23,6 +23,7 @@ Dog & Dog::operator=(Dog const & copy)
 	if (this != &copy)
 	{
 		_type = copy.getType();
+		delete brain;
 		brain = new Brain(*copy.brain);
 	}
 	return (*this);
@@ -38,14 +39,7 @@ std::string Dog::getType() const
 	return (this->_type);
 }
 
-void Dog::setIdea(std::string idea, int i)
+Brain* Dog::getIdea()
 {
-	this->brain->setIdea(idea, i);
-}
-
-std::string Dog::getIdea(int i)
-{
-	if (i < 0 || i > 100)
-		return ("Bad index\n");
-	return (this->brain->getIdeas()[i]);
+	return (this->brain);
 }

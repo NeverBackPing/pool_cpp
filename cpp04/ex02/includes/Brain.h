@@ -12,7 +12,7 @@ class Brain
 
 		Brain & operator=(Brain const & copy);
 
-		std::string *getIdeas();
+		std::string getIdeas(int i);
 		void setIdea(std::string idea, int i);
 
 	private:
