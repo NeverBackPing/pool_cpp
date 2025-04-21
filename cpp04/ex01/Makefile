@@ -1,6 +1,6 @@
 # Compiler and Compiler flags
-CPP = c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -MMD
+CXX = c++
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98 -MMD
 
 # Clear
 RM = rm -rf
@@ -18,18 +18,18 @@ INCLUDES = -Iincludes
 
 # Fichier objet
 %.o: %.c
-	@$(CPP) $(CFLAGS) $(INCLUDES) $< -o $@
+	@$(CXX) $(CPPFLAGS) $(INCLUDES) $< -o $@
 
 # Compile
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CPP) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
+	@$(CXX) $(CPPFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 	@echo "Compiled ✅"
 	@echo "The program $(NAME) is created ✅"
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) srcs/*.d
 	@echo ".o files are destroyed ✅"
 
 fclean: clean
