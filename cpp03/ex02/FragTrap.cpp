@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjossain <sjossaint@student.42.fr>         +#+  +:+       +#+        */
+/*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 19:05:34 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 21:52:09 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/21 10:59:31 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap destructor called for " << this->_name << std::endl;
 }
 
-void FragTrap::attack(std::string const & target)
+/*void FragTrap::attack(std::string const & target)
 {
 	std::cout << "FragTrap " << this->_name;
 	if (this->_energy > 0)
@@ -57,7 +57,7 @@ void FragTrap::attack(std::string const & target)
 	}
 	else
 		std::cout << " has too little energy points to attack." << std::endl;
-}
+}*/
 
 void FragTrap::highFivesGuys()
 {

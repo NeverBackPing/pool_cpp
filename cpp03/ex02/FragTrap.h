@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 19:05:49 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 19:05:50 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/21 10:59:47 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class FragTrap : public ClapTrap
 
 		FragTrap& operator=(const FragTrap& Copy);
 
-		void attack(std::string const & target);
+		//void attack(std::string const & target);
 		void highFivesGuys();
 };
 

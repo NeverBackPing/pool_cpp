@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:15:26 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 19:06:22 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/21 10:39:21 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << _name;
 	if (this->_hit <= 0)
 		std::cout << " is already dead!" << std::endl;
-	else if (this->_hit - amount <= 0)
+	else if (this->_hit - (int)amount <= 0)
 	{
-		std::cout <<  this->_name << " take ";
+		std::cout << " take ";
 		std::cout << "-" << amount << " and die" << std::endl;
 		this->_hit = 0;
 	}

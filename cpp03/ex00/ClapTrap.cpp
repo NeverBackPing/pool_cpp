@@ -6,7 +6,7 @@
 /*   By: sjossain <sjossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:15:26 by sjossain          #+#    #+#             */
-/*   Updated: 2025/04/20 19:09:43 by sjossain         ###   ########.fr       */
+/*   Updated: 2025/04/21 10:28:38 by sjossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,34 +78,34 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << _name;
 	if (this->_hit <= 0)
 		std::cout << " is already dead!" << std::endl;
-	else if (this->_hit - amount <= 0)
+	else if (_hit - (int)amount <= 0 || this->_hit <= 0)
 	{
-		std::cout <<  this->_name << " take ";
+		std::cout << " take ";
 		std::cout << "-" << amount << " and die" << std::endl;
 		this->_hit = 0;
 	}
 	else
 	{
 		this->_hit -= amount;
-		std::cout << " takes " << amount << " damage " << this->_hit << std::endl;
+		std::cout << " takes " << amount << " damage hit stay " << this->_hit << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << "ClapTrap " << _name;
-	if (_hit <= 0 || _energy < amount || _energy <= 0)
+	if (this->_hit <= 0 || this->_energy < amount || this->_energy <= 0)
 	{
 		std::cout << " can't be repaired " << std::endl;
 		return ;
 	}
-	if (_hit == 10)
+	if (this->_hit == 10)
 	{
 		std::cout << " can't be repaired, full heath 10 " << std::endl;
 		return ;
 	}
-	_hit += amount;
-	_energy -= amount;
+	this->_hit += amount;
+	this->_energy -= amount;
 	std::cout << " take +" << amount << " (" << _hit << ")";
 	std::cout << " and lose -" << amount << " (" << _energy << ")";
 	std::cout << std::endl;
