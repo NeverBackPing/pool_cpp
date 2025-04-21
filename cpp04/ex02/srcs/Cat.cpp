@@ -1,6 +1,6 @@
 #include "../includes/Cat.h"
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat(): Animal("Cat")
 {
 	std::cout << "Cat constructor called" << std::endl;
 	this->brain = new Brain();
@@ -23,10 +23,21 @@ Cat & Cat::operator=(Cat const & copy)
 	if (this != &copy)
 	{
 		this->_type = copy.getType();
+		delete brain;
 		brain = new Brain(*copy.brain);
 	}
 	return (*this);
 }
+
+/*Cat & Cat::operator=(Cat const & copy)
+{
+	if (this != &copy)
+	{
+		this->_type = copy.getType();
+		brain = copy.brain;
+	}
+	return (*this);
+}*/
 
 void Cat::makeSound() const
 {
@@ -38,15 +49,8 @@ std::string Cat::getType() const
 	return (this->_type);
 }
 
-void Cat::setIdea(std::string idea, int i)
+Brain* Cat::getIdea()
 {
-	this->brain->setIdea(idea, i);
-}
-
-std::string Cat::getIdea(int i)
-{
-	if (i < 0 || i > 100)
-		return ("Bad index\n");
-	return (this->brain->getIdeas()[i]);
+	return (this->brain);
 }
 

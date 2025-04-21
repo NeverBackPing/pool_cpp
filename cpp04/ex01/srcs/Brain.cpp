@@ -28,14 +28,14 @@ Brain & Brain::operator=(Brain const & copy)
 	return (*this);
 }
 
-void Brain::setBrain(std::string idea, int i)
+void Brain::setIdea(std::string idea, int i)
 {
 	if (i < 0 || i > 100)
 		return ;
 	this->ideas[i] = idea;
 }
 
-std::string Brain::getBrain(int i)
+std::string Brain::getIdeas(int i)
 {
 	if (i < 0 || i > 100)
 		return ("Bad index");

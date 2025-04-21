@@ -29,6 +29,16 @@ Cat & Cat::operator=(Cat const & copy)
 	return (*this);
 }
 
+/*Cat & Cat::operator=(Cat const & copy)
+{
+	if (this != &copy)
+	{
+		this->_type = copy.getType();
+		brain = copy.brain;
+	}
+	return (*this);
+}*/
+
 void Cat::makeSound() const
 {
 	std::cout << "Miaaaw ! I want eat !!\n";

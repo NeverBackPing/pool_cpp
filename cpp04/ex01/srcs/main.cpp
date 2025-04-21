@@ -53,6 +53,10 @@ int main()
 	Berlioz.getIdea()->setBrain("Happy Happy Happy\n", 0);
 	toulouse = Berlioz;
 
-	std::cout << toulouse.getIdea()->getBrain(0) << std::endl;
+	Berlioz.getIdea()->setBrain("I want Eat\n", 0);
+
+	std::cout << std::endl << Berlioz.getIdea()->getBrain(0) << std::endl << std::endl;
+	std::cout << std::endl << toulouse.getIdea()->getBrain(0) << std::endl << std::endl;
+	std::cout << std::endl << Berlioz.getIdea()->getBrain(0) << std::endl << std::endl;
 	return (0);
 }

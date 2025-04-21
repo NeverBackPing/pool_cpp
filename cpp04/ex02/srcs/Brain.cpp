@@ -38,6 +38,6 @@ void Brain::setIdea(std::string idea, int i)
 std::string Brain::getIdeas(int i)
 {
 	if (i < 0 || i > 100)
-		return ;
+		return ("Bad index");
 	return (this->ideas[i]);
 }
