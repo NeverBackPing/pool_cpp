@@ -7,7 +7,6 @@ int main()
 {
 	std::cout << "\n[ TESTS WITH CORRECT CLASSES ]\n";
 
-	
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 

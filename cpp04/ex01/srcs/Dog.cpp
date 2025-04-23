@@ -23,7 +23,7 @@ Dog & Dog::operator=(Dog const & copy)
 	if (this != &copy)
 	{
 		_type = copy.getType();
-		brain = new Brain(*copy.brain);
+		this->brain = new Brain(*copy.brain);
 	}
 	return (*this);
 }

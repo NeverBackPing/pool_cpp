@@ -6,7 +6,7 @@ CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98 -MMD
 RM = rm -rf
 
 # Program
-NAME = animal
+NAME = animal2
 
 # Source
 SRC = $(shell ls srcs/*.cpp)

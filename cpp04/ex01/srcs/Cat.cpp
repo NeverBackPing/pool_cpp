@@ -8,8 +8,8 @@ Cat::Cat(): Animal("Cat")
 
 Cat::~Cat()
 {
-	std::cout << "Cat destructor called\n";
 	delete this->brain;
+	std::cout << "Cat destructor called\n";
 }
 
 Cat::Cat(Cat & copy)
@@ -23,7 +23,7 @@ Cat & Cat::operator=(Cat const & copy)
 	if (this != &copy)
 	{
 		this->_type = copy.getType();
-		brain = new Brain(*copy.brain);
+		this->brain = new Brain(*copy.brain);
 	}
 	return (*this);
 }
