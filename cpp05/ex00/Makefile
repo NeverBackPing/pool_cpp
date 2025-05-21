@@ -22,7 +22,7 @@ run: $(PROG)
 clean:
 	rm -rf $(OBJS)
 
-fclean: $(clean)
-	rm $(PROG);
+fclean:clean
+	rm -rf $(PROG);
 
 .PHONY: all run clean fclean
