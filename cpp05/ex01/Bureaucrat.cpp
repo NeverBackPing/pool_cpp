@@ -29,7 +29,6 @@ unsigned int	Bureaucrat::GradeCheck(unsigned int grade)
 	return (grade);
 }
 
-
 void Getinfo(Bureaucrat& employed)
 {
 	try
@@ -47,4 +46,9 @@ void Getinfo(Bureaucrat& employed)
 	{
 		std::cout << e.what() << '\n';
 	}
+}
+
+void	Bureaucrat::signForm()
+{
+	
 }

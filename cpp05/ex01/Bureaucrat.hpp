@@ -1,6 +1,7 @@
 #pragma once
 
 # include <iostream>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -8,9 +9,11 @@ class Bureaucrat
 		Bureaucrat(std::string name, unsigned int grade);
 		~Bureaucrat();
 
+		Form*			form;
+		void			signForm();
 		unsigned int	getter_grade() const;
 		unsigned int	GradeCheck(unsigned int grade);
-		std::string getter_name() const;
+		std::string 	getter_name() const;
 
 		class GradeTooHighException: public std::exception
 		{
