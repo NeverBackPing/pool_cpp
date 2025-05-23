@@ -3,16 +3,18 @@
 # include <iostream>
 # include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 	public:
-		Bureaucrat(std::string name, unsigned int grade);
+		Bureaucrat(std::string name,  int grade);
 		~Bureaucrat();
 
-		Form*			form;
-		void			signForm();
-		unsigned int	getter_grade() const;
-		unsigned int	GradeCheck(unsigned int grade);
+		
+		void			signForm(Form& doc);
+		 int	getter_grade() const;
+		 int	GradeCheck( int grade);
 		std::string 	getter_name() const;
 
 		class GradeTooHighException: public std::exception
@@ -33,7 +35,7 @@ class Bureaucrat
 
 	private:
 		std::string		_name;
-		unsigned int	_grade;
+		int	_grade;
 };
 
 void Getinfo(Bureaucrat& employed);

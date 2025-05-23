@@ -1,23 +1,27 @@
 #include "Form.hpp"
 
-Form::Form(std::string document, unsigned int lvl_sign, unsigned int exe_sign): 
-sign(false), grade_sign(lvl_sign), grade_exec(exe_sign)
+Form::Form(std::string document, int lvl_sign, int exe_sign): 
+isSigned(false), gradeToSign(lvl_sign), gradeToExecute(exe_sign), name(document)
 {
 }
 
 Form::~Form()
 {
-    std::cout << "Destructor called" << std::endl;
 }
 
-unsigned int	Form::getter_grade_sign() const
+int	Form::getter_grade_sign() const
 {
-    return (this->grade_sign);
+    return (this->gradeToSign);
 }
 
-unsigned int	Form::getter_grade_exec() const
+int	Form::getter_grade_exec() const
 {
-    return (this->grade_exec);
+    return (this->gradeToExecute);
+}
+
+bool	Form::getIsSigned()
+{
+    return (this->isSigned);
 }
 
 std::string	Form::getter_name() const
@@ -37,3 +41,10 @@ std::ostream& operator<<(std::ostream& os, const Form& obj)
     return (os);
 }
 
+void  Form::beSigned(Bureaucrat& emplyed)
+{
+    if (emplyed.getter_grade() >= this->getter_grade_sign())
+        this->isSigned = true;
+    else
+       throw Fl_exeception;
+}

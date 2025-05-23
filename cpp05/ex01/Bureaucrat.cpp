@@ -1,13 +1,11 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, unsigned int grade): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string name,  int grade): _name(name), _grade(grade)
 {
-	std::cout << "Constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getter_name() const
@@ -15,12 +13,12 @@ std::string Bureaucrat::getter_name() const
 	return (this->_name);
 }
 
-unsigned int Bureaucrat::getter_grade() const
+ int Bureaucrat::getter_grade() const
 {
 	return (this->_grade);
 }
 
-unsigned int	Bureaucrat::GradeCheck(unsigned int grade)
+ int	Bureaucrat::GradeCheck( int grade)
 {
 	if (grade < 1)
 		throw GradeTooLowException();
@@ -48,7 +46,17 @@ void Getinfo(Bureaucrat& employed)
 	}
 }
 
-void	Bureaucrat::signForm()
+void	Bureaucrat::signForm(Form& doc)
 {
-	
+	try 
+	{
+        doc.beSigned(*this);
+        std::cout << this->getter_name() << " signed " << doc.getter_name() << std::endl;
+    } 
+	catch (std::exception &e)
+	{
+        std::cout << this->getter_name() << " couldn’t sign ";
+		std::cout << doc.getter_name();
+        std::cout << " because " << e.what() << std::endl;
+    }
 }
