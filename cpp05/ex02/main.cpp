@@ -5,7 +5,7 @@ int	main(void)
 	try
 	{
 		Bureaucrat employed("Kevin", 100);
-		Form doc("Tax", 100, 111);
+		AForm doc("Tax", 100, 111);
 
 		std::cout << "[Start]" << std::endl;
 

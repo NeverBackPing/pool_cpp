@@ -1,38 +1,43 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(std::string document, int lvl_sign, int exe_sign):
+AForm::AForm(std::string document, int lvl_sign, int exe_sign):
 isSigned(false), gradeToSign(lvl_sign), gradeToExecute(exe_sign), name(document)
 {
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-
 }
 
-int	Form::getter_grade_sign() const
+AForm & AForm::operator=(AForm const & copy)
+{
+	this. = copy._type;
+	return (*this);
+}
+
+int	AForm::getter_grade_sign() const
 {
     return (this->gradeToSign);
 }
 
-int	Form::getter_grade_exec() const
+int	AForm::getter_grade_exec() const
 {
     return (this->gradeToExecute);
 }
 
-bool	Form::getIsSigned()
+bool	AForm::getIsSigned()
 {
     return (this->isSigned);
 }
 
-std::string	Form::getter_name() const
+std::string	AForm::getter_name() const
 {
     return (this->name);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& obj)
+std::ostream& operator<<(std::ostream& os, const AForm& obj)
 {
-    os << "The name form is ";
+    os << "The name Aform is ";
     os << obj.getter_name();
     os << " you need ";
     os << obj.getter_grade_sign();
@@ -42,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, const Form& obj)
     return (os);
 }
 
-void  Form::beSigned(Bureaucrat& emplyed)
+void  AForm::beSigned(Bureaucrat& emplyed)
 {
     if (emplyed.getter_grade() >= this->getter_grade_sign())
         this->isSigned = true;

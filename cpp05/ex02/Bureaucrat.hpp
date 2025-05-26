@@ -3,7 +3,7 @@
 # include <iostream>
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -11,11 +11,11 @@ class Bureaucrat
 		Bureaucrat(std::string name,  int grade);
 		~Bureaucrat();
 
-
-		void			signForm(Form& doc);
-		 int	getter_grade() const;
-		 int	GradeCheck( int grade);
-		std::string 	getter_name() const;
+		void			signForm(AForm& doc);
+		int				getter_grade() const;
+		int				GradeCheck( int grade);
+		std::string		getter_name() const;
+		virtual void	executeForm(AForm const & form) const = 0;
 
 		class GradeTooHighException: public std::exception
 		{
@@ -35,7 +35,7 @@ class Bureaucrat
 
 	private:
 		std::string		_name;
-		int	_grade;
+		int				_grade;
 };
 
-void Getinfo(Bureaucrat& employed);
+void	Getinfo(Bureaucrat& employed);
