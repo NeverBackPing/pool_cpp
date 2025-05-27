@@ -6,12 +6,19 @@
 
 class ShrubberyCreationForm: public AForm
 {
-    private:
-        std::string target;
-    public:
-        ShrubberyCreationForm();
-        ~ShrubberyCreationForm();
+	private:
+		//Objet
+		std::string _target;
+	public:
+		// Form Canonique
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(ShrubberyCreationForm & copy);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy)
+		~ShrubberyCreationForm();
 
-        void execute(void);
-        std::string GetTaget();
+		//Method Getter
+		std::string GetTaget();
+
+		//Method action
+		void execute(void);
 };

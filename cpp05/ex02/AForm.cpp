@@ -9,48 +9,48 @@ AForm::~AForm()
 {
 }
 
-AForm & AForm::operator=(AForm const & copy)
+AForm & AForm::operator=(AForm const &copy)
 {
-	this. = copy._type;
+	(void)copy;
 	return (*this);
 }
 
 int	AForm::getter_grade_sign() const
 {
-    return (this->gradeToSign);
+	return (this->gradeToSign);
 }
 
 int	AForm::getter_grade_exec() const
 {
-    return (this->gradeToExecute);
+	return (this->gradeToExecute);
 }
 
-bool	AForm::getIsSigned()
+bool	AForm::getIsSigned() const
 {
-    return (this->isSigned);
+	return (this->isSigned);
 }
 
 std::string	AForm::getter_name() const
 {
-    return (this->name);
+	return (this->name);
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj)
 {
-    os << "The name Aform is ";
-    os << obj.getter_name();
-    os << " you need ";
-    os << obj.getter_grade_sign();
-    os << " for signed and ";
-    os << obj.getter_grade_exec();
-    os << " for execute";
-    return (os);
+	os << "The name Aform is ";
+	os << obj.getter_name();
+	os << " you need ";
+	os << obj.getter_grade_sign();
+	os << " for signed and ";
+	os << obj.getter_grade_exec();
+	os << " for execute";
+	return (os);
 }
 
 void  AForm::beSigned(Bureaucrat& emplyed)
 {
-    if (emplyed.getter_grade() >= this->getter_grade_sign())
-        this->isSigned = true;
-    else
-        throw Fl_exeception;
+	if (emplyed.getter_grade() >= this->getter_grade_sign())
+		this->isSigned = true;
+	else
+		throw Fl_exeception;
 }
