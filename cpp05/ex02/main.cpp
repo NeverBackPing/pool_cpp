@@ -1,11 +1,13 @@
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main(void)
 {
 	try
 	{
 		Bureaucrat employed("Kevin", 100);
-		AForm doc("Tax", 100, 111);
+		// AForm doc("Tax", 100, 111);
+		ShrubberyCreationForm doc("Tax", 100, 111);
 
 		std::cout << "[Start]" << std::endl;
 

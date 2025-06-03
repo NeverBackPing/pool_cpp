@@ -1,6 +1,11 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, unsigned int grade): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(): _name("Bob"), _grade(125)
+{
+	std::cout << "Constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -15,36 +20,46 @@ std::string Bureaucrat::getter_name() const
 	return (this->_name);
 }
 
-unsigned int Bureaucrat::getter_grade() const
+int Bureaucrat::getter_grade() const
 {
 	return (this->_grade);
 }
 
-unsigned int	Bureaucrat::GradeCheck(unsigned int grade)
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const &copy)
 {
-	if (grade < 1)
-		throw GradeTooLowException();
-	if (grade > 150)
-		throw GradeTooLowException();
-	return (grade);
+	this->_grade = copy.getter_grade();
+	this->_name = copy.getter_name();
+	return (*this);
 }
 
-
-void Getinfo(Bureaucrat& employed)
+std::string	check_info(const Bureaucrat& obj)
 {
 	try
 	{
-		std::cout << "Name: " << employed.getter_name();
-		std::cout << ", ";
-		if (employed.GradeCheck(employed.getter_grade()) >= 1 &&
-			employed.GradeCheck(employed.getter_grade()) <= 150)
-		{
-			std::cout << "bureaucrat grade " << employed.getter_grade();
-			std::cout <<  std::endl;
-		}
+		if (obj.getter_grade() > 150)
+			throw obj.Gh_exeception;
+		else if (obj.getter_grade() < 1)
+			throw obj.Gl_exeception;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << e.what() << '\n';
+		return (e.what());
 	}
+	std::stringstream tmp;
+	std::string tmp_string;
+
+	tmp << obj.getter_grade();
+	tmp >> tmp_string;
+	return (tmp_string);
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
+{
+		os << "Name: ";
+		os << obj.getter_name();
+		os << ", ";
+		os << "bureaucrat grade: ";
+		os <<  check_info(obj);
+		os <<  std::endl;
+	return (os);
 }

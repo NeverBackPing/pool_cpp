@@ -1,17 +1,23 @@
 #pragma once
 
 # include <iostream>
+# include <string>
+# include <sstream>
 
 class Bureaucrat
 {
 	public:
-		Bureaucrat(std::string name, unsigned int grade);
+		// Form Canonique
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat &operator=(const Bureaucrat &copy);
 		~Bureaucrat();
 
-		unsigned int	getter_grade() const;
-		unsigned int	GradeCheck(unsigned int grade);
-		std::string getter_name() const;
+		//Method Getter
+		int				getter_grade() const;
+		std::string		getter_name() const;
 
+		//Exception
 		class GradeTooHighException: public std::exception
 		{
 			virtual const char * what() const throw()
@@ -29,8 +35,9 @@ class Bureaucrat
 		} Gl_exeception;
 
 	private:
+		//Objet
 		std::string		_name;
-		unsigned int	_grade;
+		int				_grade;
 };
-
-void Getinfo(Bureaucrat& employed);
+std::string		check_info(const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

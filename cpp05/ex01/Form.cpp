@@ -44,6 +44,8 @@ std::ostream& operator<<(std::ostream& os, const Form& obj)
 
 void  Form::beSigned(Bureaucrat& emplyed)
 {
+    // if (_isSigned)
+        //throw isAlreadySigned();
     if (emplyed.getter_grade() >= this->getter_grade_sign())
         this->isSigned = true;
     else

@@ -18,7 +18,7 @@ class AForm
 		// Form Canonique
 		AForm(std::string document, int lvl_sign, int exe_sign);
 		AForm &operator=(const AForm &copy);
-		~AForm();
+		virtual ~AForm();
 
 		//Method Getter
 		int				getter_grade_sign() const;

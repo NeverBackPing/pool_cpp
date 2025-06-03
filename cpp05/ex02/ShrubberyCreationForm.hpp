@@ -4,6 +4,7 @@
 # include <fstream>
 # include "Bureaucrat.hpp"
 
+
 class ShrubberyCreationForm: public AForm
 {
 	private:
