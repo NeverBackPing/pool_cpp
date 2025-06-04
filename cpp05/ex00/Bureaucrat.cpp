@@ -20,6 +20,11 @@ std::string Bureaucrat::getter_name() const
 	return (this->_name);
 }
 
+void	Bureaucrat::setter_grade(int edit)
+{
+	this->_grade = edit;
+}
+
 int Bureaucrat::getter_grade() const
 {
 	return (this->_grade);

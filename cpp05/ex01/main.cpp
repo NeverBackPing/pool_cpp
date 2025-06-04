@@ -1,4 +1,6 @@
 #include "Bureaucrat.hpp"
+# include "Form.hpp"
+
 
 int	main(void)
 {
@@ -10,7 +12,7 @@ int	main(void)
 		std::cout << "[Start]" << std::endl;
 
 		std::cout << doc << std::endl;
-		Getinfo(employed);
+		std::cout << employed << std::endl;
 
 		std::cout << "[END]" << std::endl;
 

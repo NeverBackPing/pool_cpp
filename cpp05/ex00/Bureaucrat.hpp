@@ -17,6 +17,7 @@ class Bureaucrat
 		//Method Getter
 		int				getter_grade() const;
 		std::string		getter_name() const;
+		void			setter_grade(int edit);
 
 		//Exception
 		class GradeTooHighException: public std::exception
