@@ -42,9 +42,9 @@ std::string	check_info(const Bureaucrat& obj)
 	try
 	{
 		if (obj.getter_grade() > 150)
-			throw obj.Gh_exeception;
-		else if (obj.getter_grade() < 1)
 			throw obj.Gl_exeception;
+		else if (obj.getter_grade() < 1)
+			throw obj.Gh_exeception;
 	}
 	catch (std::exception& e)
 	{

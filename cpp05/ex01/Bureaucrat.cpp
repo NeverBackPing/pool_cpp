@@ -42,9 +42,9 @@ std::string	check_info(const Bureaucrat& obj)
 	try
 	{
 		if (obj.getter_grade() > 150)
-			throw obj.Gh_exeception;
-		else if (obj.getter_grade() < 1)
 			throw obj.Gl_exeception;
+		else if (obj.getter_grade() < 1)
+			throw obj.Gh_exeception;
 	}
 	catch (std::exception& e)
 	{
@@ -69,7 +69,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 	return (os);
 }
 
-void	Bureaucrat::signForm(Form& doc)
+void Bureaucrat::signForm(Form& doc)
 {
 	try
 	{
@@ -83,3 +83,4 @@ void	Bureaucrat::signForm(Form& doc)
 		std::cout << " because " << e.what() << std::endl;
 	}
 }
+
