@@ -13,8 +13,7 @@ class ShrubberyCreationForm: public AForm
 	public:
 		// Form Canonique
 		ShrubberyCreationForm(std::string target);
-		ShrubberyCreationForm(ShrubberyCreationForm & copy);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy)
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
 		~ShrubberyCreationForm();
 
 		//Method Getter

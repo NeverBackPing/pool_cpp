@@ -17,7 +17,6 @@ class AForm
 	public:
 		// Form Canonique
 		AForm(std::string document, int lvl_sign, int exe_sign);
-		AForm &operator=(const AForm &copy);
 		virtual ~AForm();
 
 		//Method Getter
@@ -46,6 +45,14 @@ class AForm
 			return ("grade is too low!");
 		}
 	} Fl_exeception;
+
+	class isAlreadySigned : public std::exception
+	{
+		virtual const char * what() const throw()
+		{
+			return ("Is already signed");
+		}
+	}Sign_exeception;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);

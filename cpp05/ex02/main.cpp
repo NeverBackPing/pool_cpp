@@ -12,7 +12,6 @@ int	main(void)
 		std::cout << "[Start]" << std::endl;
 
 		std::cout << doc << std::endl;
-		Getinfo(employed);
 
 		std::cout << "[END]" << std::endl;
 
