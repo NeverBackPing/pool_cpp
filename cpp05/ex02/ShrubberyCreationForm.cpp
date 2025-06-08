@@ -1,6 +1,11 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Home", 145, 137), _target("Home")
+{
+
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm(target, 145, 137), _target(target)
 {
 
 }
@@ -21,28 +26,40 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void ShrubberyCreationForm::execute(void)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if ((this->getter_grade_sign() < 145) || (this->getter_grade_exec() < 137))
+	try
 	{
-		throw Fl_exeception;
+		if (!this->isSigned)
+			throw NoSign;
+		if ((executor.getter_grade() > 145) || executor.getter_grade() > 137)
+		{
+			throw this->Fl_exeception;
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return ;
 	}
 
-	std::ofstream FileTree(this->_target + "_shrubbery.txt");
+	std::string filename = this->_target + "_shrubbery.txt";
 
-	FileTree  <<  "          oxoxoo    ooxoo " << std::endl;
-	FileTree  <<  "        ooxoxo oo  oxoxooo " << std::endl;
-	FileTree  <<  "        oooo xxoxoo ooo ooox " << std::endl;
-	FileTree  <<  "        oxo o oxoxo  xoxxoxo " << std::endl;
-	FileTree  <<  "        oxo xooxoooo o ooo " << std::endl;
-	FileTree  <<  "           ooo\oo\  /o /o " << std::endl;
-	FileTree  <<  "               \  \/  / " << std::endl;
-	FileTree  <<  "                |   _/ " << std::endl;
-	FileTree  <<  "                |  | " << std::endl;
-	FileTree  <<  "                |  | " << std::endl;
-	FileTree  <<  "                |  | " << std::endl;
-	FileTree  <<  "                |  | " << std::endl;
-	FileTree  <<  "            _D_/____\___" << std::endl;
+	std::ofstream FileTree(filename.c_str());
+
+	FileTree <<  "          oxoxoo    ooxoo " << std::endl;
+	FileTree <<  "        ooxoxo oo  oxoxooo " << std::endl;
+	FileTree <<  "        oooo xxoxoo ooo ooox " << std::endl;
+	FileTree <<  "        oxo o oxoxo  xoxxoxo " << std::endl;
+	FileTree <<  "        oxo xooxoooo o ooo " << std::endl;
+	FileTree <<  "           ooo\\oo\\  /o /o " << std::endl;
+	FileTree <<  "               \\  \\/  / " << std::endl;
+	FileTree <<  "                |   _/ " << std::endl;
+	FileTree <<  "                |  | " << std::endl;
+	FileTree <<  "                |  | " << std::endl;
+	FileTree <<  "                |  | " << std::endl;
+	FileTree <<  "                |  | " << std::endl;
+	FileTree <<  "            _D_/____\\___" << std::endl;
 
 	FileTree.close();
 }

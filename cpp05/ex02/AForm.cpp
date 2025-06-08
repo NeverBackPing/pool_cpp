@@ -31,7 +31,7 @@ int	AForm::getter_grade_exec() const
 	return (this->gradeToExecute);
 }
 
-bool	AForm::getIsSigned()
+bool	AForm::getIsSigned() const
 {
 	return (this->isSigned);
 }

@@ -3,25 +3,24 @@
 
 int	main(void)
 {
-	try
-	{
-		Bureaucrat employed("Kevin", 100);
-		// AForm doc("Tax", 100, 111);
-		ShrubberyCreationForm doc("Tax", 100, 111);
 
-		std::cout << "[Start]" << std::endl;
+	Bureaucrat employed("Kevin", 137);
+	ShrubberyCreationForm doc("Home");
 
-		std::cout << doc << std::endl;
+	std::cout << "\033[31m[Start ShrubberyCreationForm]\033[0m" << std::endl;
 
-		std::cout << "[END]" << std::endl;
+	std::cout << doc << std::endl;
+	std::cout << employed << std::endl;
 
-		employed.signForm(doc);
-		std::cout << doc << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	//doc.execute(employed);
+
+	std::cout << "\033[31m[Employed signed ShrubberyCreationForm]\033[0m" << std::endl;
+
+	employed.signForm(doc);
+
+	doc.execute(employed);
+
+	std::cout << doc << std::endl;
 	return (0);
 }
 

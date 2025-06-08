@@ -16,6 +16,7 @@ class AForm
 
 	public:
 		// Form Canonique
+		AForm();
 		AForm(std::string document, int lvl_sign, int exe_sign);
 		virtual ~AForm();
 
@@ -24,6 +25,9 @@ class AForm
 		int				getter_grade_exec() const;
 		bool			getIsSigned() const;
 		std::string		getter_name() const;
+
+		//Method setter
+		void	setter_remove_sign(bool remove_sihn);
 
 		//Method action
 		void			beSigned(Bureaucrat& emplyed);
