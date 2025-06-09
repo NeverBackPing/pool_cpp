@@ -6,17 +6,17 @@
 # include "AForm.hpp"
 
 
-class ShrubberyCreationForm: public AForm
+class PresidentialPardonForm: public AForm
 {
 	private:
 		//Objet
 		std::string _target;
 	public:
 		// Form Canonique
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string target);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
+		~PresidentialPardonForm();
 
 		//Method Getter
 		std::string GetTaget() const;

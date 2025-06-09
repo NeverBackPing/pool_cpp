@@ -5,22 +5,21 @@
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
 
-
-class ShrubberyCreationForm: public AForm
+class RobotomyRequestForm: public AForm
 {
 	private:
 		//Objet
 		std::string _target;
 	public:
 		// Form Canonique
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string target);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
-		~ShrubberyCreationForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
+		~RobotomyRequestForm();
 
-		//Method Getter
+	//Method Getter
 		std::string GetTaget() const;
 
-		//Method action
+	//Method action
 		void execute(Bureaucrat const & executor) const;
 };

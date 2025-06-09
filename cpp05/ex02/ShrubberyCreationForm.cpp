@@ -15,7 +15,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 }
 
-std::string ShrubberyCreationForm::GetTaget()
+std::string ShrubberyCreationForm::GetTaget() const
 {
 	return (this->_target);
 }
@@ -32,7 +32,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		if (!this->isSigned)
 			throw NoSign;
-		if ((executor.getter_grade() > 145) || executor.getter_grade() > 137)
+		if (executor.getter_grade() > this->getter_grade_exec())
 		{
 			throw this->Fl_exeception;
 		}

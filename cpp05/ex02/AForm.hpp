@@ -57,6 +57,14 @@ class AForm
 			return ("Is already signed");
 		}
 	}Sign_exeception;
+
+	class NoSign: public std::exception
+	{
+		virtual const char *what() const throw()
+		{
+			return ("It not sign, you can't execute");
+		}
+	} NoSign;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);
