@@ -1,8 +1,16 @@
 #pragma once
 
-# include <Aform.hpp>
-# include <Bureaucrat.hpp>
+# include "AForm.hpp"
+# include "Bureaucrat.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include <string>
 
+class AForm;
+class RobotomyRequestForm;
+class ShrubberyCreationForm;
+class PresidentialPardonForm;
 
 class Intern
 {
@@ -10,7 +18,7 @@ class Intern
 		Intern();
 		~Intern();
 
-		AForm	*makeForm(char *FormName, char *target);
+		AForm	*makeForm(std::string FormName, std::string target);
 };
 
 
