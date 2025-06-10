@@ -16,7 +16,7 @@ AForm	*Intern::makeForm(std::string FormName, std::string target)
 	int i = 0;
 	int res = -1;
 
-	std::string doc[] = {"shrubbery creation", "robotomy resquest", "presidential pardon"};
+	std::string doc[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
 	while (i < 3)
 	{
