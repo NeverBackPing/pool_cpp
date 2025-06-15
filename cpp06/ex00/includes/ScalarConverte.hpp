@@ -5,7 +5,7 @@
 
 class ScalarConverte
 {
-    private:
+	public:
 
-    public:
+	static void convert(char *data);
 };
