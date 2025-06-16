@@ -4,11 +4,6 @@
 # include <string>
 # include <cstdlib>
 
-class ScalarConverte
-{
-	public:
-	static void convert(std::string data);
-};
-
+bool	isParam(char *str);
+void display_char(char *data);
 std::string convertToString(char* a, int size);
-
