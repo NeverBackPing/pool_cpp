@@ -1,5 +1,31 @@
 # include "../includes/convert_util.hpp"
 
+bool regex_float(char *data)
+{
+	int i = 0;
+
+	while (data[i] && data[i] != '.')
+	{
+		if (data[i] < '0' || data[i] > '9')
+			return (false);
+		i++;
+	}
+	i++;
+	while (data[i])
+	{
+		if (data[i] < '0' || data[i] > '9')
+			return (false);
+		i++;
+		if (data[i] == 'f')
+			break ;
+	}
+	if (!data[i])
+		return (true);
+	if ((data[i] == 'f') && !data[i + 1])
+		return (true);
+	return (false);
+}
+
 void display_char(char *data)
 {
 	char c;
