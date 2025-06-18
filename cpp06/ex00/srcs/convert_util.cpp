@@ -10,6 +10,8 @@ bool regex_float(char *data)
 			return (false);
 		i++;
 	}
+	if (!data[i])
+		return (true);
 	i++;
 	while (data[i])
 	{

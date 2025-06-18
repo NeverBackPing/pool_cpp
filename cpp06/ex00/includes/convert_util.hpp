@@ -5,7 +5,7 @@
 # include <cstdlib>
 
 
-bool regex_float(char *data);
 bool isParam(char *str);
+bool regex_float(char *data);
 void display_char(char *data);
 std::string convertToString(char* a, int size);

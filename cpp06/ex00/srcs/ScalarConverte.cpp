@@ -1,8 +1,7 @@
 # include "../includes/ScalarConverte.hpp"
 # include "../includes/convert_util.hpp"
 
-template<int d>
-std::ostream& fixed(std::ostream& os)
+template<int d> std::ostream& fixed(std::ostream& os)
 {
 	os.setf(std::ios_base::fixed, std::ios_base::floatfield);
 	os.precision(d);
@@ -50,7 +49,7 @@ void	convert_float(std::string data)
 	const char	*tmp_char = data.c_str();
 	if (regex_float((char *)tmp_char))
 	{
-		std::cout << "float: "<< fixed<1> << tmp_float << "f" << std::endl;
+		std::cout << "float: "<< *fixed<1> << tmp_float << "f" << std::endl;
 		return ;
 	}
 	std::cout << "float: nanf" << std::endl;
