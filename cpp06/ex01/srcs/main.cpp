@@ -1,20 +1,30 @@
-# include <cstdio>
-# include <bits/stdc++.h>
 # include "../includes/Serializer.hpp"
 
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac != 2 || av[1][0] == '\0')
-	{
-		if (ac < 2)
-			std::cerr << "\033[0;31mError: no input find\033[0m" << std::endl;
-		else
-			std::cerr << "\033[0;31mError: Too many argument\033[0m" << std::endl;
-		return (1);
-	}
-	ScalarConverte convert;
+	Data		*tmp;
+	uintptr_t	mail;
+	Data		*data = new Data;
+	
+	srand(time(0));
+	data->value = rand() % 101;
 
-	convert.convert(convertToString(av[1], strlen(av[1])));
-	return (0);
+	std::cout << "\033[0;32mCreation mail:\033[0m " << data->value << std::endl;
+
+	mail = Serializer::serialize(data);
+
+	std::cout << "\033[0;32mSend the mail:\033[0m " << mail << std::endl;
+
+	tmp = Serializer::deserialize(mail);
+
+	std::cout << "\033[0;32mReceived your email and read it:\033[0m "<< tmp->value << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "\033[0;32mData Address:\033[0m " << data << std::endl;
+	std::cout << "\033[0;32mTmp Address:\033[0m " << tmp << std::endl;
+	
+	delete data;
+	return 0;
 }
