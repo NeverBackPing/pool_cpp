@@ -68,3 +68,17 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 		os <<  std::endl;
 	return (os);
 }
+
+void Bureaucrat::incrementGrade()
+{
+    if (_grade <= 1)
+        throw GradeTooHighException();
+    _grade--;
+}
+
+void Bureaucrat::decrementGrade()
+{
+    if (_grade >= 150)
+        throw GradeTooLowException();
+    _grade++;
+}

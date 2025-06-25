@@ -1,22 +1,36 @@
 #include "Bureaucrat.hpp"
-# include "Form.hpp"
+#include "Form.hpp"
 
-
-int	main(void)
+int main()
 {
+    Bureaucrat b1("Arthur", 50);
+    Bureaucrat b2("Alexia", 140);
+    Form f1("tax", 100, 80);
 
-	Bureaucrat employed("Kevin", 10);
-	Form doc("Tax", 100, 111);
+    std::cout << f1 << std::endl;
 
-	std::cout << "\033[31m[Start]\033[0m" << std::endl;
+    try
+	{
+        f1.beSigned(b2);  // Trop faible
+    } 
+    catch (const std::exception &e)
+	{
+        std::cerr << e.what() << std::endl;
+    }
 
-	std::cout << doc << std::endl;
-	std::cout << employed << std::endl;
+    try
+	{
+        f1.beSigned(b1);  // OK
+        std::cout << f1 << std::endl;
+    } 
+    catch (const std::exception &e)
+	{
+        std::cerr << e.what() << std::endl;
+    }
 
-	std::cout << "\033[31m[Employed signed]\033[0m" << std::endl;
+    b1.signForm(f1);  // Devrait dire que déjà signé
+    b2.signForm(f1);  // Trop faible
 
-	employed.signForm(doc);
-	std::cout << doc << std::endl;
-	return (0);
+    return (0);
 }
 

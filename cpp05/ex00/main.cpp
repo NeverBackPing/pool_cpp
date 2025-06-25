@@ -1,24 +1,31 @@
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 
-int	main(void)
+int main()
 {
-	Bureaucrat employed("Kevin", 2);
-	Bureaucrat employed2;
+    try
+	{
+        Bureaucrat b1("Alice", 2);
+        std::cout << b1 << std::endl;
 
-	std::cout << std::endl <<"\033[31m[ Emplyed 1 ]\033[0m" << std::endl << std::endl;
+        b1.incrementGrade();  // Passe à 1
+        std::cout << b1 << std::endl;
 
-	std::cout << employed << std::endl;
+        b1.incrementGrade();  // Erreur : trop haut
+    } catch (const std::exception &e)
+	{
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
 
-	std::cout << "\033[31m[ Emplyed 2 ]\033[0m" << std::endl << std::endl;
+    try
+	{
+        Bureaucrat b2("Bob", 151);  // Erreur : grade trop bas
+    } 
+	catch (const std::exception &e)
+	{
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
 
-	std::cout << employed2 << std::endl;
-
-	std::cout << "\033[31m[ Edit Emplyed 2 ]\033[0m" << std::endl << std::endl;
-
-	employed2 = employed;
-
-	std::cout << employed2 << std::endl;
-
-	return (0);
+    return (0);
 }
+
 

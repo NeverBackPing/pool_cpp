@@ -56,8 +56,6 @@ int	main(void)
 	doc3.execute(employed3);
 	employed3.signForm(doc3);
 
-
-
 	std::cout << std::endl;
 
 	return (0);

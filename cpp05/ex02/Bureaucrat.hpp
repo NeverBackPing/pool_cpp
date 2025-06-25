@@ -6,7 +6,6 @@
 # include <stdlib.h>
 # include "AForm.hpp"
 
-
 class AForm;
 
 class Bureaucrat
@@ -18,13 +17,13 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &copy);
 		~Bureaucrat();
 
-		//Method to sign
-		void	signForm(AForm& doc);
-
 		//Method Getter
+		void			signForm(AForm& doc);
 		int				getter_grade() const;
 		std::string		getter_name() const;
 		void			setter_grade(int edit);
+		void 			incrementGrade();
+		void 			decrementGrade(); 
 
 		//Exception
 		class GradeTooHighException: public std::exception
@@ -49,4 +48,4 @@ class Bureaucrat
 		int				_grade;
 };
 std::string		check_info(const Bureaucrat& obj);
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

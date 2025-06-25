@@ -20,14 +20,14 @@ std::string Bureaucrat::getter_name() const
 	return (this->_name);
 }
 
-int Bureaucrat::getter_grade() const
-{
-	return (this->_grade);
-}
-
 void	Bureaucrat::setter_grade(int edit)
 {
 	this->_grade = edit;
+}
+
+int Bureaucrat::getter_grade() const
+{
+	return (this->_grade);
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const &copy)
@@ -69,6 +69,20 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 	return (os);
 }
 
+void Bureaucrat::incrementGrade()
+{
+    if (_grade <= 1)
+        throw GradeTooHighException();
+    _grade--;
+}
+
+void Bureaucrat::decrementGrade()
+{
+    if (_grade >= 150)
+        throw GradeTooLowException();
+    _grade++;
+}
+
 void Bureaucrat::signForm(Form& doc)
 {
 	try
@@ -83,4 +97,3 @@ void Bureaucrat::signForm(Form& doc)
 		std::cout << " because " << e.what() << std::endl;
 	}
 }
-
