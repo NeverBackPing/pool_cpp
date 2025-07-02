@@ -6,7 +6,7 @@
 # include <stdlib.h>
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -21,7 +21,6 @@ class Bureaucrat
 		void			signForm(AForm& doc);
 		int				getter_grade() const;
 		std::string		getter_name() const;
-		void			setter_grade(int edit);
 		void 			incrementGrade();
 		void 			decrementGrade(); 
 
@@ -43,8 +42,8 @@ class Bureaucrat
 		} Gl_exeception;
 
 	private:
-		std::string		_name;
-		int				_grade;
+		//Objet
+		const std::string		_name;
+		int						_grade;
 };
-std::string		check_info(const Bureaucrat& obj);
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
