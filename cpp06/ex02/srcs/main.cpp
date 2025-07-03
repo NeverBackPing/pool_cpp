@@ -1,19 +1,33 @@
-# include <cstdio>
-# include <bits/stdc++.h>
-# include "../includes/Identify.hpp"
+# include <ctime>
+# include <string>
+# include <cstdlib>
+# include <typeinfo>
+# include <iostream>
+# include "../includes/A.hpp"
+# include "../includes/B.hpp"
+# include "../includes/C.hpp"
+#include "../includes/Base.hpp"
 
-
-int main(int ac, char **av)
+int main()
 {
-	if (ac != 2 || av[1][0] == '\0')
-	{
-		if (ac < 2)
-			std::cerr << "\033[0;31mError: no input find\033[0m" << std::endl;
-		else
-			std::cerr << "\033[0;31mError: Too many argument\033[0m" << std::endl;
-		return (1);
-	}
-	ScalarConverte convert;
-	convert.convert(convertToString(av[1], strlen(av[1])));
-	return (0);
+	srand(time(0));
+
+	for (int i = 0; i < 5; i++)
+    {
+        std::cout << "\033[0;32m[Test " << i + 1 << "]\033[0m" << std::endl;
+
+        Base* p = generate();
+
+        std::cout << "Identify (pointer): ";
+        identify(p);
+
+        std::cout << "Identify (reference): ";
+        identify(*p);
+
+        delete p;
+
+        std::cout << std::endl;
+    }
+    return (0);
 }
+

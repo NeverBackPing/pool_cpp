@@ -1,5 +1,4 @@
 # include <cstdio>
-# include <bits/stdc++.h>
 # include "../includes/ScalarConverte.hpp"
 
 
@@ -14,6 +13,6 @@ int main(int ac, char **av)
 		return (1);
 	}
 	ScalarConverte convert;
-	convert.convert(convertToString(av[1], strlen(av[1])));
+	convert.convert(av[1]);
 	return (0);
 }

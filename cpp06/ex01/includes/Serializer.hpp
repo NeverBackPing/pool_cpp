@@ -19,5 +19,4 @@ class Serializer
 
     private:
         Serializer();
-        Serializer(Serializer const &src);
 };

@@ -1,15 +1,5 @@
 #pragma once
 
-# include "../includes/Base.hpp"
+# include "Base.hpp"
 
-
-class Base;
-
-class C : public Base
-{
-	private:
-
-	public:
-		C();
-		~C();
-};
+class C : public Base {};

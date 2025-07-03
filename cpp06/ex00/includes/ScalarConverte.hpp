@@ -1,15 +1,23 @@
 #pragma once
 
-# include <iostream>
-# include <string>
-# include <cstdlib>
-# include <sstream>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <climits>
+#include <cfloat>
+#include <cmath>
+
+enum Type
+{ 
+	CHAR, 
+	INT, 
+	FLOAT, 
+	DOUBLE, 
+	INVALID 
+};
 
 class ScalarConverte
 {
 	public:
-	static void convert(std::string data);
+		static void convert(std::string literal);
 };
-
-std::string convertToString(char* a, int size);
-
