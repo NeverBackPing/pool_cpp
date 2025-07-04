@@ -2,17 +2,17 @@
 
 Bureaucrat::Bureaucrat(): _name("Bob"), _grade(125)
 {
-	std::cout << "Constructor called" << std::endl;
+	//std::cout << "Constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
-	std::cout << "Constructor called" << std::endl;
+	//std::cout << "Constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getter_name() const
@@ -71,14 +71,14 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 
 void Bureaucrat::incrementGrade()
 {
-    if (_grade <= 1)
-        throw GradeTooHighException();
-    _grade--;
+	if (_grade <= 1)
+		throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (_grade >= 150)
-        throw GradeTooLowException();
-    _grade++;
+	if (_grade >= 150)
+		throw GradeTooLowException();
+	_grade++;
 }
