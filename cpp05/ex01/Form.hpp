@@ -26,10 +26,10 @@ class Form
 		bool		getIsSigned();
 		std::string	getter_name() const;
 
-		//Methode setter
+		// Methode setter
 		void		setter_remove_sign(bool remove_sihn);
 
-		//Exception
+		// Exception
 		class GradeTooHighException: public std::exception
 		{
 			virtual const char * what() const throw()
@@ -42,7 +42,7 @@ class Form
 		{
 			virtual const char * what() const throw()
 			{
-				return ("grade is too low!");
+				return ("Grade is too low!");
 			}
 		} Fl_exeception;
 

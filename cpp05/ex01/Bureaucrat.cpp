@@ -2,17 +2,17 @@
 
 Bureaucrat::Bureaucrat(): _name("Bob"), _grade(125)
 {
-	std::cout << "Constructor called" << std::endl;
+	//std::cout << "Constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
-	std::cout << "Constructor called" << std::endl;
+	//std::cout << "Constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getter_name() const
@@ -60,35 +60,36 @@ std::string	check_info(const Bureaucrat& obj)
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-		os << "Name: ";
-		os << obj.getter_name();
-		os << ", ";
-		os << "bureaucrat grade: ";
-		os <<  check_info(obj);
-		os <<  std::endl;
+	os << "Name: ";
+	os << obj.getter_name();
+	os << ", ";
+	os << "bureaucrat grade: ";
+	os <<  check_info(obj);
+	os <<  std::endl;
 	return (os);
 }
 
 void Bureaucrat::incrementGrade()
 {
-    if (_grade <= 1)
-        throw GradeTooHighException();
-    _grade--;
+	if (_grade <= 1)
+		throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (_grade >= 150)
-        throw GradeTooLowException();
-    _grade++;
+	if (_grade >= 150)
+		throw GradeTooLowException();
+	_grade++;
 }
 
 void Bureaucrat::signForm(Form& doc)
 {
 	try
 	{
+		if (doc.getter_grade_sign() < this->getter_grade())
+			throw GradeTooLowException();
 		doc.beSigned(*this);
-		std::cout << this->getter_name() << " signed " << doc.getter_name() << std::endl;
 	}
 	catch (std::exception &e)
 	{

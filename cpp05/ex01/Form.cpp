@@ -58,7 +58,10 @@ void  Form::beSigned(Bureaucrat& emplyed)
 	if (this->isSigned)
 		throw isAlreadySigned();
 	if (emplyed.getter_grade() <= this->getter_grade_sign())
+	{
+		std::cout << emplyed.getter_name() << " signed " << this->getter_name() << std::endl;
 		this->isSigned = true;
+	}
 	else
 		throw Fl_exeception;
 }

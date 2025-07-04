@@ -23,7 +23,7 @@ class Bureaucrat
 		std::string		getter_name() const;
 		void			setter_grade(int edit);
 		void 			incrementGrade();
-		void 			decrementGrade(); 
+		void 			decrementGrade();
 
 		//Exception
 		class GradeTooHighException: public std::exception
