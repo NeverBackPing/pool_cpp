@@ -17,7 +17,6 @@ class Bureaucrat
 		//Method Getter
 		int				getter_grade() const;
 		std::string		getter_name() const;
-		void			setter_grade(int edit);
 		void 			incrementGrade();
 		void 			decrementGrade(); 
 
@@ -40,8 +39,7 @@ class Bureaucrat
 
 	private:
 		//Objet
-		std::string		_name;
+		const std::string		_name;
 		int				_grade;
 };
-std::string		check_info(const Bureaucrat& obj);
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

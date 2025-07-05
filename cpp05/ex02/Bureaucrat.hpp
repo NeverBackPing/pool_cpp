@@ -18,10 +18,11 @@ class Bureaucrat
 		~Bureaucrat();
 
 		//Method Getter
+		bool			GetSignStatus();
+		void			SetterSign(bool status);
 		void			signForm(AForm& doc);
 		int				getter_grade() const;
 		std::string		getter_name() const;
-		void			setter_grade(int edit);
 		void 			incrementGrade();
 		void 			decrementGrade(); 
 
@@ -44,8 +45,8 @@ class Bureaucrat
 
 	private:
 		//Objet
-		std::string		_name;
-		int				_grade;
+		bool					sign;
+		const std::string		_name;
+		int						_grade;
 };
-std::string		check_info(const Bureaucrat& obj);
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

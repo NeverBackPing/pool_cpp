@@ -54,8 +54,13 @@ std::ostream& operator<<(std::ostream& os, const AForm& obj)
 
 void  AForm::beSigned(Bureaucrat& emplyed)
 {
-	if (emplyed.getter_grade() <= this->getter_grade_sign())
+	if (emplyed.GetSignStatus())
+		throw AForm::isAlreadySigned();
+	else if (emplyed.getter_grade() <= this->getter_grade_sign())
+	{
     	this->isSigned = true;
+		emplyed.SetterSign(true);
+	}
 	else
    		throw GradeTooLowException();
 }

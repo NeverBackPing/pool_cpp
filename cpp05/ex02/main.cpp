@@ -8,11 +8,10 @@ int	main(void)
 {
 
 	//ShrubberyCreationForm
+	std::cout << "\033[34m[Start ShrubberyCreationForm]\033[0m" << std::endl;
+	
 	Bureaucrat employed("Kevin", 137);
 	ShrubberyCreationForm doc("Home");
-
-	std::cout << "\033[34m[Start ShrubberyCreationForm]\033[0m" << std::endl;
-
 	std::cout << doc << std::endl;
 	std::cout << employed << std::endl;
 
@@ -25,12 +24,11 @@ int	main(void)
 	std::cout << doc << std::endl << std::endl;
 
 	std::cout << "-------------------------------------" << std::endl << std::endl;
-
+	
 	//RobotomyRequestForm
+	std::cout << "\033[34m[Start RobotomyRequestForm]\033[0m" << std::endl;
 	Bureaucrat employed2("Alexia", 20);
 	RobotomyRequestForm doc2("Workspace");
-
-	std::cout << "\033[34m[Start RobotomyRequestForm]\033[0m" << std::endl;
 
 	std::cout << doc2 << std::endl;
 	std::cout << employed << std::endl;
@@ -44,11 +42,9 @@ int	main(void)
 	std::cout << std::endl << "-------------------------------------" << std::endl << std::endl;
 
 	//PresidentialPardonForm
+	std::cout << "\033[34m[Start PresidentialPardonForm]\033[0m" << std::endl;
 	Bureaucrat employed3("Robert", 19);
 	PresidentialPardonForm doc3("School");
-
-	std::cout << "\033[34m[Start PresidentialPardonForm]\033[0m" << std::endl;
-
 	std::cout << doc3 << std::endl;
 	std::cout << employed << std::endl;
 

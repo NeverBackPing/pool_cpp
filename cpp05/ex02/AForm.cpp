@@ -8,18 +8,16 @@ isSigned(false), gradeToSign(120), gradeToExecute(120), name("Tax")
 AForm::AForm(std::string document, int lvl_sign, int exe_sign):
 isSigned(false), gradeToSign(lvl_sign), gradeToExecute(exe_sign), name(document)
 {
+	if (lvl_sign < 1 || exe_sign < 1)
+        throw GradeTooHighException();
+    else if (lvl_sign > 150 || exe_sign > 150)
+        throw GradeTooLowException();
 }
 
 AForm::~AForm()
 {
 
 }
-
-void	AForm::setter_remove_sign(bool remove_sihn)
-{
-	this->isSigned = remove_sihn;
-}
-
 
 int	AForm::getter_grade_sign() const
 {
@@ -43,22 +41,26 @@ std::string	AForm::getter_name() const
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj)
 {
-	os << "The name Form is ";
-	os << obj.getter_name();
-	os << " you need ";
-	os << obj.getter_grade_sign();
-	os << " for signed and ";
-	os << obj.getter_grade_exec();
-	os << " for execute";
+	os << obj.getter_name() << ", form is signed: ";
+	if (obj.getIsSigned())
+		os << "true";
+	else
+		os << "false";
+	os << ", grade to sign: " << obj.getter_grade_sign();
+	os << ", grade to execute: " << obj.getter_grade_exec();
+	os << ".";
 	return (os);
 }
 
 void  AForm::beSigned(Bureaucrat& emplyed)
 {
-	if (this->isSigned)
-		throw isAlreadySigned();
-	if (emplyed.getter_grade() <= this->getter_grade_sign())
-		this->isSigned = true;
+	if (emplyed.GetSignStatus())
+		throw AForm::isAlreadySigned();
+	else if (emplyed.getter_grade() <= this->getter_grade_sign())
+	{
+    	this->isSigned = true;
+		emplyed.SetterSign(true);
+	}
 	else
-		throw Fl_exeception;
+   		throw GradeTooLowException();
 }

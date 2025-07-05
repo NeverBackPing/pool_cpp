@@ -18,6 +18,8 @@ class Bureaucrat
 		~Bureaucrat();
 
 		//Method Getter
+		bool			GetSignStatus();
+		void			SetterSign(bool status);
 		void			signForm(AForm& doc);
 		int				getter_grade() const;
 		std::string		getter_name() const;
@@ -43,6 +45,7 @@ class Bureaucrat
 
 	private:
 		//Objet
+		bool					sign;
 		const std::string		_name;
 		int						_grade;
 };

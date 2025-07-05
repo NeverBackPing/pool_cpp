@@ -23,13 +23,17 @@ class Form
 		void		beSigned(Bureaucrat& emplyed);
 		int			getter_grade_sign() const;
 		int			getter_grade_exec() const;
-		bool		getIsSigned();
+		bool		getIsSigned() const;
 		std::string	getter_name() const;
 
+<<<<<<< HEAD
 		// Methode setter
 		void		setter_remove_sign(bool remove_sihn);
 
 		// Exception
+=======
+		//Exception
+>>>>>>> 936fd0a (hello)
 		class GradeTooHighException: public std::exception
 		{
 			virtual const char * what() const throw()
@@ -52,7 +56,7 @@ class Form
 			{
 				return ("Is already signed");
 			}
-		}Sign_exeception;
+		} isAlreadySigned_exception;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& obj);

@@ -64,7 +64,9 @@ int main(void)
 
     delete doc3;
 
-    std::cout << "-------------------------------------" << std::endl;
+    std::cout << "-------------------------------------" << std::endl << std::endl;
+
+    std::cout << "\033[34m[Start Fail Form]\033[0m" << std::endl;
 
     AForm *doc4 = someRandomIntern.makeForm("Tax form", "Bender");
 

@@ -7,7 +7,16 @@ Bureaucrat::Bureaucrat(): _name("Bob"), _grade(125)
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
+<<<<<<< HEAD
 	//std::cout << "Constructor called" << std::endl;
+=======
+	if (grade < 1)
+        throw GradeTooHighException();
+    else if (grade > 150)
+        throw GradeTooLowException();
+    _grade = grade;
+	std::cout << "Constructor called" << std::endl;
+>>>>>>> 936fd0a (hello)
 }
 
 Bureaucrat::~Bureaucrat()
@@ -20,11 +29,6 @@ std::string Bureaucrat::getter_name() const
 	return (this->_name);
 }
 
-void	Bureaucrat::setter_grade(int edit)
-{
-	this->_grade = edit;
-}
-
 int Bureaucrat::getter_grade() const
 {
 	return (this->_grade);
@@ -32,40 +36,14 @@ int Bureaucrat::getter_grade() const
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const &copy)
 {
-	this->_grade = copy.getter_grade();
-	this->_name = copy.getter_name();
+	 if (this != &copy)
+        this->_grade = copy.getter_grade();
 	return (*this);
-}
-
-std::string	check_info(const Bureaucrat& obj)
-{
-	try
-	{
-		if (obj.getter_grade() > 150)
-			throw obj.Gl_exeception;
-		else if (obj.getter_grade() < 1)
-			throw obj.Gh_exeception;
-	}
-	catch (std::exception& e)
-	{
-		return (e.what());
-	}
-	std::stringstream tmp;
-	std::string tmp_string;
-
-	tmp << obj.getter_grade();
-	tmp >> tmp_string;
-	return (tmp_string);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-		os << "Name: ";
-		os << obj.getter_name();
-		os << ", ";
-		os << "bureaucrat grade: ";
-		os <<  check_info(obj);
-		os <<  std::endl;
+	os << obj.getter_name() << ", bureaucrat grade " << obj.getter_grade() << ".";
 	return (os);
 }
 

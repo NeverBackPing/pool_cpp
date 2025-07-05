@@ -20,7 +20,7 @@ run: $(PROG)
 	./$(PROG)
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJS) *.txt
 
 fclean:clean
 	@rm -rf $(PROG);
