@@ -35,12 +35,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const &copy)
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-		os << "Name: ";
-		os << obj.getter_name();
-		os << ", ";
-		os << "bureaucrat grade: ";
-		os <<  check_info(obj);
-		os <<  std::endl;
+	os << obj.getter_name() << ", bureaucrat grade " << obj.getter_grade() << ".";
 	return (os);
 }
 
@@ -75,6 +70,8 @@ void Bureaucrat::signForm(Form& doc)
 		if (doc.getter_grade_sign() < this->getter_grade())
 			throw GradeTooLowException();
 		doc.beSigned(*this);
+		std::cout << this->getter_name() << " signed " << doc.getter_name() << std::endl;
+
 	}
 	catch (std::exception &e)
 	{

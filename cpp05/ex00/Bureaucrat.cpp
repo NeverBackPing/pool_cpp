@@ -7,16 +7,12 @@ Bureaucrat::Bureaucrat(): _name("Bob"), _grade(125)
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
-<<<<<<< HEAD
-	//std::cout << "Constructor called" << std::endl;
-=======
 	if (grade < 1)
         throw GradeTooHighException();
     else if (grade > 150)
         throw GradeTooLowException();
     _grade = grade;
 	std::cout << "Constructor called" << std::endl;
->>>>>>> 936fd0a (hello)
 }
 
 Bureaucrat::~Bureaucrat()

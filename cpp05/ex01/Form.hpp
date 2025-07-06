@@ -26,14 +26,7 @@ class Form
 		bool		getIsSigned() const;
 		std::string	getter_name() const;
 
-<<<<<<< HEAD
-		// Methode setter
-		void		setter_remove_sign(bool remove_sihn);
-
-		// Exception
-=======
 		//Exception
->>>>>>> 936fd0a (hello)
 		class GradeTooHighException: public std::exception
 		{
 			virtual const char * what() const throw()
