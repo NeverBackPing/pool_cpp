@@ -17,14 +17,11 @@ template <typename T> T min(T x, T y)
 	return (y);
 }
 
-template <typename T> T swap(T& x, T& y)
+template <typename T> void swap(T& x, T& y)
 {
-	T tmp;
+	T tmp = 0;
 
 	tmp = x;
 	x = y;
 	y = tmp;
-	std::cout << "testsssssssss\n";
-
-	return (0);
 }
