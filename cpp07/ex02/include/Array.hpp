@@ -11,18 +11,21 @@ class Array
 		unsigned int _n;
 
 	public:
-		// Constructeur par défaut
 		Array() : _element(NULL), _n(0)
 		{
 		}
 
-		// Constructeur avec taille
 		Array(unsigned int n) : _element(new T[n]), _n(n)
 		{
 			for (unsigned int i = 0; i < _n; ++i)
 			{
-				_element[i] = T(); // Appel du constructeur par défaut
+				_element[i] = T();
 			}
+		}
+		
+		~Array()
+		{
+			delete[] _element;
 		}
 
 		// Constructeur de copie
@@ -36,7 +39,6 @@ class Array
 			}
 		}
 
-		// Opérateur d’assignation
 		Array& operator=(const Array& other)
 		{
 			if (this != &other)
@@ -49,13 +51,7 @@ class Array
 					_element[i] = other._element[i];
 				}
 			}
-			return *this;
-		}
-
-		// Destructeur
-		~Array()
-		{
-			delete[] _element;
+			return (*this);
 		}
 
 		// Accès aux éléments avec vérification de l'index
@@ -65,7 +61,7 @@ class Array
 			{
 				throw std::out_of_range("Index out of bounds");
 			}
-			return _element[index];
+			return (_element[index]);
 		}
 
 		const T& operator[](unsigned int index) const
@@ -74,12 +70,11 @@ class Array
 			{
 				throw std::out_of_range("Index out of bounds");
 			}
-			return _element[index];
+			return (_element[index]);
 		}
 
-		// Méthode size
 		unsigned int size() const
 		{
-			return _n;
+			return (_n);
 		}
 };
