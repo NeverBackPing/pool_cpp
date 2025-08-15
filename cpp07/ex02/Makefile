@@ -2,7 +2,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
-PROG = iter
+PROG = Array
 
 SRCS = $(shell ls srcs/main.cpp)
 
